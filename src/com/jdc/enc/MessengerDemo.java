@@ -12,6 +12,8 @@ public class MessengerDemo {
 		me.send("Ko Hein");
 		System.out.println(me.getClass());
 		
+		System.out.println("Exit program");
+		
 	}
 	
 }
