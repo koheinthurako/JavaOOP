@@ -21,10 +21,7 @@ public class PrimeNumbers {
 					
 					if(userInput==i) {
 						continue;
-					} else if(userInput==1) {
-						System.out.println("You can't type " + userInput + " please type other numbers");
-						break;
-					} else if(userInput%i==0) {
+					} else if(userInput%i==0 | userInput==1) {
 						System.out.println(userInput + " is not prime number!");
 						result = false;
 						break;
@@ -41,23 +38,23 @@ public class PrimeNumbers {
 				if(userInput2.equals("y")) {
 					checker = true;
 				} else {
+					System.out.println("Thanks for using my program");
 					System.out.println("--- Program Ended! ---");
 					checker = false;
 				}
 				
 			} else {
-				System.out.println("Invalid Value! Please enter only numbers");
-				System.out.println("Please type numbers : ");
+				System.out.println("Invalid Value! Please type only numbers");
+				System.out.println("Want to restart the program? Y/N : ");
 				sc.nextLine();
 				String userInput2 = sc.nextLine().toLowerCase();
 				if(userInput2.equals("y")) {
 					checker = true;
 				} else {
+					System.out.println("Thanks for using my program");
 					System.out.println("--- Program Ended! ---");
 					checker = false;
 				}
-				
-//				break;
 			}
 			
 		}
