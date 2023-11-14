@@ -14,26 +14,34 @@ public class PrimeNumbers {
 				int userInput = sc.nextInt();
 				boolean result = false;
 				
-				for(int i = 3; i < 11; i++) {
+				for(int i = 2; i < 11; i++) {
 					
 					if(userInput==i) {
 						continue;
 					} else if(userInput%i==0) {
 						System.out.println(userInput + " is not prime number!");
 						checker = false;
-						return;
+						result = false;
+						break;
 					} else {
 						result = true;
 					}
+					
 				}
 				
-				if(result) System.out.println("Yes! " + userInput + " is prime number!");
+				if(result) {
+					System.out.println("Yes! " + userInput + " is prime number!");
+					break;
+				}
 				
 			} else {
 				System.out.println("Invalid Value!");
 				break;
 			}
 		}
+		
+		sc.close();
+		
 	}
 
 }
