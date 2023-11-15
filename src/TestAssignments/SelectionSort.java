@@ -18,10 +18,16 @@ public class SelectionSort {
 //			}
 //		}
 		
-		for(int i = 0; i <= nums.length - 1; i++) {
-			System.out.print(i + " ");
-		}		
+		// forward
+//		for(int i = 0; i <= nums.length - 1; i++) {
+//			System.out.print(i + " ");
+//		}	
 		
+		for(int i = nums.length-1; i >= 0; i--) {
+			System.out.print(i + " ");
+		}
+		
+		//backward
 //		System.out.println(Arrays.toString(nums));
 		
 	}
