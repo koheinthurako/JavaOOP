@@ -7,18 +7,22 @@ public class PrimeNumbers {
 		System.out.println("Let's check prime numbers! Program start...");
 		
 		Scanner sc = new Scanner(System.in);
+		
 		boolean checker = true;
 		
+		// outer loop
 		while(checker) {
 			
 			System.out.println("Please Enter a number...");
 			
+			// Check userInput is integer or not
 			if(sc.hasNextInt()) {
 				int userInput = sc.nextInt();
 				boolean result = false;
 				
+				// inner loop
 				for(int i = 2; i < 11; i++) {
-					
+					// check prime number or not
 					if(userInput==i) {
 						continue;
 					} else if(userInput%i==0 | userInput==1) {
@@ -32,6 +36,7 @@ public class PrimeNumbers {
 				
 				if(result) System.out.println("Yes! " + userInput + " is prime number!");
 				
+				// Ask user to continue or not within the outer loop
 				System.out.println("Want to check another Y/N : ");
 				sc.nextLine();
 				String userInput2 = sc.nextLine().toLowerCase();
@@ -43,6 +48,7 @@ public class PrimeNumbers {
 					checker = false;
 				}
 				
+			// If userInput is not integer, print invalid value and ask user to continue or not
 			} else {
 				System.out.println("Invalid Value! Please type only numbers");
 				System.out.println("Want to restart the program? Y/N : ");
