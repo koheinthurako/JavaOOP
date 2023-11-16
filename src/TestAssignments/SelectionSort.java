@@ -9,27 +9,18 @@ public class SelectionSort {
 	public static void main(String[] args) {
 		
 		int [] nums = {3, 5, 2, 7, 9, 10, 15, 7, 0, 4};
+		int minValue = 0;
 		
-//		for(int i = 0; i < nums.length - 1; i++) {
-//			if(nums[i] > nums[i+1]) {
-//				int temp = nums[i];
-//				nums[i] = nums[i+1];
-//				nums[i+1] = temp;
-//			}
-//		}
-		
-		// forward
-//		for(int i = 0; i <= nums.length - 1; i++) {
-//			System.out.print(i + " ");
-//		}	
-		
-		for(int i = nums.length-1; i >= 0; i--) {
-			System.out.print(i + " ");
+		for(int i = 0; i < nums.length; i++) {
+			for(int j = minValue; j < nums.length - 1; j++) {
+				if(nums[minValue] > nums[j+1]) {
+					int buffer = nums[minValue];
+					nums[minValue] = nums[j+1];
+					nums[j+1] = buffer;
+				}
+			}
+			minValue++;
 		}
-		
-		//backward
-//		System.out.println(Arrays.toString(nums));
-		
-	}
-
+			System.out.println(Arrays.toString(nums));
+		}
 }
