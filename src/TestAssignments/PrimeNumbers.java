@@ -18,23 +18,40 @@ public class PrimeNumbers {
 			// Check userInput is integer or not
 			if(sc.hasNextInt()) {
 				int userInput = sc.nextInt();
-				boolean result = false;
+				boolean result = true;
 				
 				// inner loop
-				for(int i = 2; i < 11; i++) {
-					// check prime number or not
-					if(userInput==i) {
-						continue;
-					} else if(userInput%i==0 | userInput==1) {
-						System.out.println(userInput + " is not prime number!");
-						result = false;
-						break;
-					} else {
-						result = true;
+//				for(int i = 2; i < 11; i++) {
+//					// check prime number or not
+//					if(userInput==i) {
+//						continue;
+//					} else if(userInput%i==0 | userInput==1) {
+//						System.out.println(userInput + " is not prime number!");
+//						result = false;
+//						break;
+//					} else {
+//						result = true;
+//					}
+//				}
+				
+			
+				// check prime number or not
+				if(userInput < 2) {
+					result = false;
+				} else {
+					for(int i = 2; i <= Math.sqrt(userInput); i++) {
+						if(userInput % i == 0) {
+							result = false;
+							break;
+						}
 					}
 				}
 				
-				if(result) System.out.println("Yes! " + userInput + " is prime number!");
+				if(result) {
+					System.out.println("Yes! " + userInput + " is prime number!");
+				} else {
+					System.out.println(userInput + " is not prime number");
+				}
 				
 				// Ask user to continue or not within the outer loop
 				System.out.println("Want to check another Y/N : ");
