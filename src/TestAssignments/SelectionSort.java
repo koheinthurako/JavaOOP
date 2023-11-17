@@ -22,5 +22,5 @@ public class SelectionSort {
 			minValue++;
 		}
 			System.out.println(Arrays.toString(nums));
-		}
+	}
 }
