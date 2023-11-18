@@ -6,8 +6,8 @@ public class Department {
 	private int age;
 	private boolean gender;
 	
-	public Department(int a) {
-		this.age = a;
+	public Department() {
+		
 	}
 	
 	public Department(int a, String name, boolean gender) {
@@ -42,6 +42,7 @@ public class Department {
 	
 	// customize method
 	public int changeAge(int plusAge) {
+		System.out.println("Original Age = " + age + " : " + "Plus Age = " + plusAge);
 		this.age += plusAge;
 		return age;
 	}

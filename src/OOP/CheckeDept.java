@@ -4,8 +4,7 @@ public class CheckeDept {
 	
 	private int plusAge = 5;
 	
-	Department dp = new Department(3, "Ko Hein", false);
-//	Department dp = new Department(plusAge);
+	Department dp = new Department(20, "Ko Hein", false);
 	
 	public int getPlusAge() {
 		return plusAge;
@@ -18,7 +17,7 @@ public class CheckeDept {
 	
 	@Override
 	public String toString() {
-		return "CheckeDept [plusAge=" + plusAge + ", dp=" + dp + "]";
+		return "Passed result from " + "[" + dp + "]";
 	}
 	
 }
