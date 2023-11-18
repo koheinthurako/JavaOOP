@@ -2,8 +2,8 @@ package OOP;
 
 public class Department {
 	
-	private int age;
 	private String name;
+	private int age;
 	private boolean gender;
 	
 	public Department(int a, String name, boolean gender) {
@@ -34,6 +34,11 @@ public class Department {
 
 	public void setGender(boolean gender) {
 		this.gender = gender;
+	}
+
+	@Override
+	public String toString() {
+		return "Department - 1 [name=" + name + ", age=" + age + ", gender=" + gender + "]";
 	}
 	
 }
