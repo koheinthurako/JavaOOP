@@ -6,6 +6,10 @@ public class Department {
 	private int age;
 	private boolean gender;
 	
+	public Department(int a) {
+		this.age = a;
+	}
+	
 	public Department(int a, String name, boolean gender) {
 		this.age = a;
 		this.name = name;
@@ -34,6 +38,12 @@ public class Department {
 
 	public void setGender(boolean gender) {
 		this.gender = gender;
+	}
+	
+	// customize method
+	public int changeAge(int plusAge) {
+		this.age += plusAge;
+		return age;
 	}
 
 	@Override
