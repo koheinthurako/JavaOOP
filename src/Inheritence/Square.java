@@ -1,4 +1,4 @@
-package GetterSetter;
+package Inheritence;
 
 public class Square {
 	
@@ -13,12 +13,12 @@ public class Square {
 	}
 
 //	Access Modifier - Getter/ Setter
-//	Getter Setter တို့ကိုသုံးရခြင်းသည် အသစ်ထည့်ချင်တဲ့ value တွေကို လိုချင်သလို condition စစ်ပြီးမှထည့်ချင်လို့သုံးကြတယ်
+//	Getter Setter �?ို့ကိုသုံးရ�?ြင်းသည် အသစ်ထည့်�?ျင်�?ဲ့ value �?ွေကို လို�?ျင်သလို condition စစ်ပြီးမှထည့်�?ျင်လို့သုံးကြ�?ယ်
 	public int getWidth() {
 		return width;
 	}
 
-//	 set လုပ်လိုက်တဲ့ value ကို condition စစ်ပြီးမှ လက်ခံခြင်း
+//	 set လုပ်လိုက်�?ဲ့ value ကို condition စစ်ပြီးမှ လက်�?ံ�?ြင်း
 	public void setWidth(int width) {
 		if(width > 0 & width<100)
 		this.width = width;
@@ -28,7 +28,7 @@ public class Square {
 	public int getHeight() {
 		return height;
 	}
-
+ 
 	public void setHeight(int height) {
 		this.height = height;
 	}
