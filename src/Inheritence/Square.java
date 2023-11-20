@@ -1,4 +1,4 @@
-package TestAssignments;
+package Inheritence;
 
 public class Square{
 	
