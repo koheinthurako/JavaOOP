@@ -1,4 +1,4 @@
-package Inheritence;
+package GetterSetter;
 
 public class Shape {
 	
