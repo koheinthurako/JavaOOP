@@ -5,6 +5,7 @@ public class DepartmentTest {
 	public static void main(String[] args) {
 		
 		Department dp1 = new Department(20, "Thet Zaw Hein", true);
+		
 //		ဒီနေရာမှာ အရင် CheckeDept ကို obj ဆောက်လိုက်တယ် 
 		CheckeDept checkDp = new CheckeDept();
 		System.out.println("Additional age = " + checkDp.getPlusAge());
