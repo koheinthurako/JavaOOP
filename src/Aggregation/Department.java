@@ -85,11 +85,17 @@ public class Department {
 	private TeamUI ui;
 	private TeamWeb web;
 	
+//	fund သည် TeamUi & TeamWeb နှစ်ခုစလုံးနဲ့သက်ဆိုင်လို့ public static ဆိုပြီးကြောညာသည်
+	public static int fund;
+//	object ပေါ်မှာမမူတည်ပဲ project ကြီးတစ်ခုလုံးပေါ်မှာ depart_id ကိုမူတည်ချင်လို့ static သုံးပြီး final ကတော့ ဘယ်တော့မှမပြောင်းတော့တဲ့ တန်ဖိုးမို့သုံးတယ်
+	public static final int DP_ID=2;
+	
 //	ဒီနေရာမှာ (TeamUi ui) ဆိုတာသည် (String name) လိုပဲ ui ရဲ့ dataType သည် TeamUI ဆိုသည့် class ကြီးတစ်ခုလုံးဖြစ်သွားသည် 
 //	အဲ့တော့ DepartmentTest ထဲကနေ Department ကို obj လှမ်းဆောက်ရင် TeamUi ui & TeamWeb web လိုအပ်သည့်အတွက် အရင်အဲ့နှစ်ခုကို obj ဆောက်
 	public Department(TeamUI ui, TeamWeb web) {
 		this.ui = ui;
 		this.web = web;
+		fund = 50000;
 	}
 
 	public TeamUI getUi() {
@@ -107,10 +113,14 @@ public class Department {
 	public void setWeb(TeamWeb web) {
 		this.web = web;
 	}
+	
+	public static void giveFund(int amount) {
+		fund -= amount;
+	}
 
 	@Override
 	public String toString() {
-		return "Department [ui=" + ui + ", \nweb=" + web + "]";
+		return "Department [ui=" + ui + ", \nweb=" + web + "]" + "Total fund = " + fund;
 	}
 	
 }
