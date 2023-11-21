@@ -37,10 +37,11 @@ public class Rectangle {
 	}
 	
 	public void calcArea() {
-//		System.out.println("Area = " + width.convertInches() * height.convertInches());
 		int area = width.convertInches() * height.convertInches();
-		System.out.println(width.convertLength(area));
-//		ဒီနေရာမှာ
+		Length len = new Length();
+		System.out.println("Area = " + len.convertLength(area));
+//		ဒီနေရာမှာ Length.java ထဲက converLength() က return ပြန်လိုက်တော့ printLn(l) ဆိုပြီးဖြစ်သွားတယ် print ထုတ်မယ်ဆိုတော့ l က
+//		Length object ကြီးဖြစ်နေလို့ Length class ထဲက toString() method ထဲမှာ l ထဲက ပါလာတဲ့ int နှစ်ခုက ဝင်သွားပြီး print ထုတ်သွားတယ်
 	}
 
 	@Override
