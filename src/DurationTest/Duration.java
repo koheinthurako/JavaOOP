@@ -1,13 +1,37 @@
 package DurationTest;
 
-import java.sql.Time;
-
 public class Duration {
 
-	public static void main(String[] args) {
-		
-		TimeLine startTime = new TimeLine(9, 00, 05);
-		
+	private TimeLine startTime;
+	private TimeLine endTime;
+
+	public Duration(TimeLine startTime, TimeLine endTime) {
+		super();
+		this.startTime = startTime;
+		this.endTime = endTime;
 	}
 
+	public TimeLine getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(TimeLine startTime) {
+		this.startTime = startTime;
+	}
+
+	public TimeLine getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(TimeLine endTime) {
+		this.endTime = endTime;
+	}
+
+	@Override
+	public String toString() {
+		return "Start time :" + startTime + "\n" + "End Time : " + endTime;
+	}
+
+	
+	
 }

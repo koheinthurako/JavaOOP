@@ -2,23 +2,24 @@ package DurationTest;
 
 public class TimeLine {
 	
-	private int hour;
+	private int hr;
 	private int min;
 	private int sec;
+	private static final int SEC_CONST = 3600;
 	
 	public TimeLine(int hour, int min, int sec) {
 		super();
-		this.hour = hour;
+		this.hr = hour;
 		this.min = min;
 		this.sec = sec;
 	}
 
 	public int getHour() {
-		return hour;
+		return hr;
 	}
 
 	public void setHour(int hour) {
-		this.hour = hour;
+		this.hr = hour;
 	}
 
 	public int getMin() {
@@ -36,10 +37,15 @@ public class TimeLine {
 	public void setSec(int sec) {
 		this.sec = sec;
 	}
+	
+	public void toSec() {
+		int startSec = hr * SEC_CONST;
+		int endSec = hr * SEC_CONST;
+	}
 
 	@Override
 	public String toString() {
-		return "TimeLine [hour=" + hour + ", min=" + min + ", sec=" + sec + "]";
+		return "[ hour=" + hr + ", min=" + min + ", sec=" + sec + " ]";
 	}
 	
 }
