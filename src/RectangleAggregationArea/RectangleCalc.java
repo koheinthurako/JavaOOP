@@ -4,7 +4,9 @@ public class RectangleCalc {
 
 	public static void main(String[] args) {
 		
-		Length feet = new Length(1, 5);
+		Rectangle rec = new Rectangle(new Length(1, 5), new Length(2, 5), "Red");
+		System.out.println(rec);
+		rec.calcArea();
 		
 	}
 

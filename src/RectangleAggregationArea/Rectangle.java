@@ -35,6 +35,13 @@ public class Rectangle {
 	public void setColor(String color) {
 		this.color = color;
 	}
+	
+	public void calcArea() {
+//		System.out.println("Area = " + width.convertInches() * height.convertInches());
+		int area = width.convertInches() * height.convertInches();
+		System.out.println(width.convertLength(area));
+//		ဒီနေရာမှာ
+	}
 
 	@Override
 	public String toString() {
