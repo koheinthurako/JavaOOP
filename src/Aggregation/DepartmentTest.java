@@ -16,6 +16,12 @@ public class DepartmentTest {
 			ui & web က obj ဖြစ်နေလို့ သူနဲ့ဆိုင်တဲ့ class ထဲကို ပြန်သွားပြီး အဲ့ထဲက toSting() method တွေပေါင်းပြီး အလုပ်လုပ်သွားခြင်းဖြစ်သည်
 		*/
 		
+//		let's change TeamUi member to 2;
+		System.out.println("---- change TeamUI member to 2 ---");
+//		original value 1 ကို 1 ထပ်တိုးချင်လို့ getUi() ဆိုပြီး TeamUI object တစ်ခုလုံးကို ဆွဲထုတ်ပြီး အဲ့ထဲက setMember() ဆိုပြီး value ကို update လုပ်ခြင်း
+		dp.getUi().setMember(dp.getUi().getMember()+1);
+		System.out.println(dp);
+		
 	}
 
 }

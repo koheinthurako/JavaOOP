@@ -110,7 +110,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return "Department [ui=" + ui + ", web=" + web + "]";
+		return "Department [ui=" + ui + ", \nweb=" + web + "]";
 	}
 	
 }
