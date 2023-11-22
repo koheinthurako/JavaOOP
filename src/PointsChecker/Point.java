@@ -43,20 +43,19 @@ public class Point {
 
 	public boolean isHorizontal(Point p1, Point p2) {
 		if (p1.x == p2.x & p1.y == p2.y) {
+			System.out.println("It's not a line, it's just a dot.");
 			return false;
-		} else if(p1.y == p2.y) {
-			return true;
+		} else if (p1.y == p2.y) {
+			System.out.println("Congratulations! You created a horizontal line");
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	public boolean isVertical(Point p1, Point p2) {
-		if (p1.x == p2.x & p1.y == p2.y) {
-			 return true;
-		} else if(p1.x == p2.x) {
+		if (p1.x == p2.x)
 			return true;
-		}
-		return true;
+		return false;
 	}
 
 	@Override
@@ -65,16 +64,13 @@ public class Point {
 	}
 
 	public String toString(Point p1, Point p2) {
-		if (isHorizontal(p1, p2) == isVertical(p1, p2)) {
-			return "It's not a line, it's just a dot.";
+		if (!isHorizontal(p1, p2)) {
+			return "";
 		} else if (isVertical(p1, p2)) {
-			return "You created a vertical line";
-		} else if (isHorizontal(p1, p2)) {
-			return "You created a horizontal line";
+			return "Congratulations! You created a vertical line";
 		} else {
 			return "Sorry, it's a slope!";
 		}
-
 	}
 
 }
