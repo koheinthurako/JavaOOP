@@ -26,7 +26,7 @@ public class Duration {
 	public void setEndTime(TimeLine endTime) {
 		this.endTime = endTime;
 	}
-	
+
 	public void calcDuration() {
 		int totalDuration = endTime.toSec() - startTime.toSec();
 		TimeLine toFinalTimeline = new TimeLine();
@@ -38,6 +38,4 @@ public class Duration {
 		return "Start time : " + startTime + "\n" + "End Time : " + endTime;
 	}
 
-	
-	
 }
