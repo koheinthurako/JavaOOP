@@ -7,7 +7,7 @@ public class Point {
 	private String color;
 
 	public Point() {
-		
+
 	}
 
 	public Point(int x, int y, String color) {
@@ -41,22 +41,24 @@ public class Point {
 		this.color = color;
 	}
 
-	public boolean isHorizontal() {
+	public boolean isHorizontal(Point p1, Point p2) {
+		if(p1.x == p2.x) return true;
 		return false;
 	}
 
-	public boolean isVertical() {
-		return true;
+	public boolean isVertical(Point p1, Point p2) {
+		if(p1.y == p2.y) return true;
+		return false;
 	}
 
 	@Override
 	public String toString() {
-//		return "Point [x=" + x + ", y=" + y + ", color=" + color + "]";
-		if (isHorizontal())
-			return "Horizontal";
-		if (isVertical())
-			return "Vertical";
-		return "";
+		return "Point [x=" + x + ", y=" + y + ", color=" + color + "]";
+//		if (isHorizontal(p1, p2))
+//			return "Horizontal";
+//		if (isVertical())
+//			return "Vertical";
+//		return "";
 	}
 
 }
