@@ -1,41 +1,31 @@
-//package PointsChecker;
-//
-//public class PointTest {
-//
-//	// x=x : vertical / y=y : horizontal
-//	private Point p1;
-//	private Point p2;
-//
-//	public PointTest(Point p1, Point p2) {
-//		super();
-//		this.p1 = p1;
-//		this.p2 = p2;
-//	}
-//
-//	public Point getP1() {
-//		return p1;
-//	}
-//
-//	public void setP1(Point p1) {
-//		this.p1 = p1;
-//	}
-//
-//	public Point getP2() {
-//		return p2;
-//	}
-//
-//	public void setP2(Point p2) {
-//		this.p2 = p2;
-//	}
-//	
-//	public void checkLine() {
-//		Point ptCheck = new Point();
-//		ptCheck.isHorizontal(p1, p2);
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "PointTest [p1=" + p1 + ", p2=" + p2 + "]";
-//	}
-//
-//}
+package PointsChecker;
+import java.util.Scanner;
+
+public class PointTest {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Let's create a horizontal or vertical line");
+		System.out.println("--- Program Start ---");
+		
+		System.out.print("Please enter P1 x : ");
+		int p1x = sc.nextInt();
+		
+		System.out.print("Please enter P1 y : ");
+		int p1y = sc.nextInt();
+		
+		Point p1 = new Point(p1x, p1y, "Red");
+		Point p2 = new Point(2, 7, "Blue");
+		Point testPoint = new Point();
+		
+		System.out.println(p1);
+		System.out.println(p2);
+		System.out.println(testPoint.toString(p1, p2));
+		
+		sc.close();
+
+	}
+
+}
