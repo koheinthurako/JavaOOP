@@ -1,4 +1,4 @@
-package DurationTest;
+package DurationChecker;
 
 public class Duration {
 
@@ -30,7 +30,7 @@ public class Duration {
 	public void calcDuration() {
 		int totalDuration = endTime.toSec() - startTime.toSec();
 		TimeLine toFinalTimeline = new TimeLine();
-		System.out.println("TotalTimeTaken : " + toFinalTimeline.toOriginalFormat(totalDuration));
+		System.out.println("Total Duration : " + toFinalTimeline.toOriginalFormat(totalDuration));
 	}
 
 	@Override

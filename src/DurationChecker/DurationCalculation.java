@@ -1,4 +1,4 @@
-package DurationTest;
+package DurationChecker;
 
 public class DurationCalculation {
 
