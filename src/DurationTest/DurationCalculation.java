@@ -6,7 +6,9 @@ public class DurationCalculation {
 		
 		Duration duration = new Duration(new TimeLine(9, 35, 00), new TimeLine(11, 30, 05));
 		System.out.println(duration);
+		duration.calcDuration();
 		
 	}
+	
 
 }
