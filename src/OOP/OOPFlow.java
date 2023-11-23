@@ -10,6 +10,9 @@ public class OOPFlow {
 //	4. method return type, method parameter passing, method overloading, method recursive
 //	5. toString()
 	
-	
+//	AccessModifier တွေကို class diagram symbol တွေ ရေးတဲ့အခါ
+//	private = "-"
+//	public = "+"
+//	protected = "#"
 
 }

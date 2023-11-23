@@ -5,7 +5,7 @@ public class BankTest {
 	public static void main(String[] args) {
 
 		BankAcc acc = new BankAcc("aye aye", 100);
-		BankAcc s_acc = new SavingAcc("hla hla", 200, false);
+		BankAcc s_acc = new SavingAcc("hla hla", 500, false);
 		BankAcc sp_acc = new SpecialAcc("ko ko", 300);
 		
 		System.out.println(acc);
@@ -15,8 +15,15 @@ public class BankTest {
 		System.out.println(sp_acc);
 		
 		System.out.println("--- အောက်က polymorphism ပြောင်းပြီး looping ပတ်ပြီး print ထုတ်ထားတာ ---");
-		
+
 		sp_acc.deposit(100);
+		acc.withdraw(50);
+		
+//		SavingAcc ထဲကနေ ငွေထုတ်ရင် အများဆုံး 300 ပဲထုတ်လို့ရမယ် မဟုတ်ရင် ထုတ်မရသည့် program တစ်ခုရေးမယ်ဆိုရင် BankAcc class ထဲက
+//		withdraw method ကို SavingAcc အတွက် သီးသန့်ပြန်ရေးရမယ် အဲ့လိုပြန်ပြင်ရေးတာကို method overriding လို့ခေါ်တယ်
+		s_acc.withdraw(300);
+		
+		
 		
 /*
  	Acc တွေအားလုံးထဲက amount တွေကိုထုတ်ကြည့်ချင်ရင် looping ပတ်ရမယ် သို့သော် looping က
