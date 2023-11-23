@@ -35,6 +35,11 @@ public class SavingAcc extends BankAcc{
 			super.amount -= withdraw_amount;
 		}
 	}
+	
+//	SavingAcc အတွက်သီးသန့် အတိုးတွက်ခြင်း method
+	public void calcInterest() {
+		System.out.println("Annula Amount with interest : " + amount + (amount*5.6/100));
+	}
 
 	@Override
 	public String toString() {

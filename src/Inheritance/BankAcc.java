@@ -1,5 +1,7 @@
 package Inheritance;
 
+import java.util.Random;
+
 public class BankAcc {
 
 	private String name;
@@ -50,10 +52,30 @@ public class BankAcc {
 	public void deposit(int add_amount) {
 		amount += add_amount;
 	}
+	
+//	Object တစ်ခုဆောက်လိုက်တာနဲ့ account number ကို မထပ်အောင် random ခေါက်ခြင်း ဒီနေရာကိုသတိထားကြည့်ပါ!!!
+	public static void generate_Account_No(BankAcc [] accs) {
+		Random r = new Random();
+//		အရင်ဆုံး accs တွေထဲက acc_no မှာ random ခေါက်လိုက်တဲ့ no က ပါလားမပါလားအရင်စစ်ရမယ် အဲ့ဒါအတွက် အောက်မှာ method အသစ်ထပ်ခွဲလိုက်တယ်
+		for(int i = 0; i < accs.length; i++) {
+			while(accs[i].acc_no == 0) {
+				int temp_no = r.nextInt(5)+1;
+				if(!isContain(accs, temp_no)) accs[i].acc_no = temp_no;
+			}
+		}
+	}
+	
+//	အပေါ်က random ခေါက်လိုက်တဲ့ temp_no နဲ့ accs တွေထဲမှာရှိတဲ့ acc_no နဲ့ ထပ်မထပ်ကို စစ်ခြင်း
+	public static boolean isContain(BankAcc [] accs, int temp_no) {
+		for(int i = 0; i < accs.length; i++) {
+			if(accs[i].acc_no == temp_no) return true;
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {
-		return name + " " + amount;
+		return acc_no + " " + name + " " + amount;
 	}
 
 }
