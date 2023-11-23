@@ -10,8 +10,8 @@ public class SavingAcc extends BankAcc{
 	ဖြစ်လို့ အခု class constructor ထဲမှာ 3 arguments ထည့်ပေးဖို့လိုတယ် parent class default constructor ဆိုရင်တော့ ထည့်ပေးဖို့မလိုဘူး
 	ပြီးရင် parent class constructor ကို super method ကိုသုံးပြီးခေါ်တယ် super ထဲမှာ 3 arguments ထပ်ထည့်ပေးရတယ်
 */
-	public SavingAcc(String name, int acc_no, double amount, boolean book) {
-		super(name, acc_no, amount); // ထိပ်ဆုံးမှာပဲရှိရမယ်
+	public SavingAcc(String name, double amount, boolean book) {
+		super(name, amount); // ထိပ်ဆုံးမှာပဲရှိရမယ်
 		this.book = book;
 	}
 /*
@@ -21,6 +21,10 @@ public class SavingAcc extends BankAcc{
 	SavingAcc object တစ်ခုကိုဆောက်လိုက်တာနဲ့ constructor ကအရင်အလုပ်လုပ်သွားမယ် constructor ထဲက arguments 3 ခုကတော့
 	parent class နဲ့ ဆိုင်ပြီး super မှတစ်ဆင့်တန်ဖိုးတွေ BankAcc ထဲကိုရောက်သွားမယ် book argument ကတော့ ဒီ Class နဲ့ပဲလို့ this ကိုသုံးထားတယ်
 */
-	
 
+	@Override
+	public String toString() {
+		return super.toString() + " (Book : " + book + ")";
+	}
+	
 }
