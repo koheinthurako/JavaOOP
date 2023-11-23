@@ -12,15 +12,15 @@ public class PointTest {
 		System.out.println("--- Program Start ---");
 
 //		for Point1
-		System.out.print("Please enter numbers for Point 1 - x : ");
+		System.out.print("Please enter numbers for Point 1 (x) : ");
 		int p1x = sc.nextInt();
-		System.out.print("Please enter numbers for Point 1 - y : ");
+		System.out.print("Please enter numbers for Point 1 (y) : ");
 		int p1y = sc.nextInt();
 
 //		for Point2
-		System.out.print("Please enter numbers for Point 2 - x : ");
+		System.out.print("Please enter numbers for Point 2 (x) : ");
 		int p2x = sc.nextInt();
-		System.out.print("Please enter numbers for Point 2 - y : ");
+		System.out.print("Please enter numbers for Point 2 (y) : ");
 		int p2y = sc.nextInt();
 
 		Point p1 = new Point(p1x, p1y, "Red");
