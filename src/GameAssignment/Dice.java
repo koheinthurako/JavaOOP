@@ -41,7 +41,19 @@ public class Dice extends Game {
 			System.out.println("Rolling...Rolling...Rolling...");
 			System.out.print("Guess what : ");
 			if (sc.hasNextInt()) {
-				if (sc.nextInt() == randomDice) {
+				int input = sc.nextInt();
+				if (input > max) {
+					System.out.println("Wrong guess! Dice numbers are between 1 to 6");
+					System.out.print("Do you want to play again ? Y/N : ");
+					sc.nextLine();
+					String yesOrNo = sc.nextLine().toLowerCase();
+					if (yesOrNo.equals("y")) {
+						checker = true;
+					} else {
+						checker = false;
+						super.showResult();
+					}
+				} else if (input == randomDice) {
 					System.out.println("Correct! It's " + randomDice);
 					super.setScore(super.getScore() + 1);
 					super.setCount(super.getCount() + 1);
@@ -68,13 +80,13 @@ public class Dice extends Game {
 					}
 				}
 			} else {
-				System.out.println("Invalid Values! Plesae enter numbers only!");
+				System.out.println("Invalid Values! Please enter numbers only!");
 				checker = false;
 			}
 		}
 
 		return true;
-		
+
 	}
 
 	@Override
