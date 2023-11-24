@@ -59,6 +59,7 @@ public class BankAcc {
 //		အရင်ဆုံး accs တွေထဲက acc_no မှာ random ခေါက်လိုက်တဲ့ no က ပါလားမပါလားအရင်စစ်ရမယ် အဲ့ဒါအတွက် အောက်မှာ method အသစ်ထပ်ခွဲလိုက်တယ်
 		for(int i = 0; i < accs.length; i++) {
 			while(accs[i].acc_no == 0) {
+//				random numbers ကို 0 - 5 ခေါက်မယ် ရလာတဲ့တန်ဖိုးကို 0 မလိုချင်လို့ 1 ပေါင်းတယ်
 				int temp_no = r.nextInt(5)+1;
 				if(!isContain(accs, temp_no)) accs[i].acc_no = temp_no;
 			}
