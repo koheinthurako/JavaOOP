@@ -7,9 +7,7 @@ public class Length {
 	public static final int CONST1 = 12;
 	public static final int CONST2 = 144;
 	
-	public Length() {
-		
-	}
+	public Length() {}
 	
 	public Length(int feet, int inch) {
 		this.feet = feet;

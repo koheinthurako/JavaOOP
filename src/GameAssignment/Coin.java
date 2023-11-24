@@ -1,43 +1,28 @@
 package GameAssignment;
-
 import java.util.Scanner;
 
 import java.util.Random;
 
-public class Dice extends Game {
-
-	private int min = 1;
-	private int max = 6;
+public class Coin extends Game {
+	
 	Scanner sc = new Scanner(System.in);
 
-	public Dice(int score, int count) {
+	private int face = 2;
+	private String head = "Head of a coil";
+	private String tail = "Tail of a coil";
+
+	public Coin(int score, int count) {
 		super(score, count);
-	}
-
-	public int getMin() {
-		return min;
-	}
-
-	public void setMin(int min) {
-		this.min = min;
-	}
-
-	public int getMax() {
-		return max;
-	}
-
-	public void setMax(int max) {
-		this.max = max;
 	}
 
 	@Override
 	public boolean playGame(int selectedGame) {
 		Random r = new Random();
 		boolean checker = true;
-
-		System.out.println("Let's play dice game!");
+		
+		System.out.println("Let's play coin game!");
 		while (checker) {
-			int randomDice = r.nextInt(max) + 1;
+			int randomDice = r.nextInt(face) + 1;
 			System.out.println("Rolling...Rolling...Rolling...");
 			System.out.print("Guess what : ");
 			if (sc.hasNextInt()) {
@@ -72,14 +57,13 @@ public class Dice extends Game {
 				checker = false;
 			}
 		}
-
-		return true;
 		
+		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Dice [min=" + min + ", max=" + max + "]";
+		return "Head=" + head + ", tail=" + tail;
 	}
-
+	
 }

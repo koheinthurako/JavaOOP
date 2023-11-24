@@ -1,6 +1,6 @@
 package GameAssignment;
 
-public class Game {
+public abstract class Game {
 
 	private int score;
 	private int count;
@@ -27,14 +27,15 @@ public class Game {
 		this.count = count;
 	}
 	
-	public boolean playGame(int chooseGame) {
-		
-		return false;
-	}
+	public abstract boolean playGame(int selectedGame);
 	
 	public int increaseCount() {
 		
 		return 0;
+	}
+	
+	public void showResult() {
+		System.out.println("You played " + count + " : " + "you scored " + score);
 	}
 
 	@Override
