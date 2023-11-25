@@ -41,36 +41,24 @@ public class Point {
 		this.color = color;
 	}
 
-	public boolean isHorizontal(Point p1, Point p2) {
-		if (p1.x == p2.x & p1.y == p2.y) {
-			System.out.println("It's not a line, it's just a dot.");
-			return false;
-		} else if (p1.y == p2.y) {
-			System.out.println("Congratulations! You created a horizontal line");
-			return false;
+	public boolean isHorizontal(Point p2) {
+		if (this.y == p2.y) {
+			System.out.println(this.y + ":" + p2.y);
+			return true;
 		}
-		return true;
+		return false;
 	}
 
-	public boolean isVertical(Point p1, Point p2) {
-		if (p1.x == p2.x)
+	public boolean isVertical(Point p2) {
+		if (this.x == p2.x) {
 			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public String toString() {
 		return color + " Point : [x=" + x + ", y=" + y + ", color=" + color + "]";
-	}
-
-	public String toString(Point p1, Point p2) {
-		if (!isHorizontal(p1, p2)) {
-			return "";
-		} else if (isVertical(p1, p2)) {
-			return "Congratulations! You created a vertical line";
-		} else {
-			return "Sorry, it's a slope!";
-		}
 	}
 
 }

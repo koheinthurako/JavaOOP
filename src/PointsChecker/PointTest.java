@@ -24,12 +24,23 @@ public class PointTest {
 		int p2y = sc.nextInt();
 
 		Point p1 = new Point(p1x, p1y, "Red");
+
 		Point p2 = new Point(p2x, p2y, "Blue");
-		Point testPoint = new Point();
 
 		System.out.println(p1);
 		System.out.println(p2);
-		System.out.println(testPoint.toString(p1, p2));
+
+		if (p1.getX() == p2.getX() & p1.getY() == p2.getY()) {
+			System.out.println("It's not a line, it's just a dot.");
+		} else if (p1.isHorizontal(p2)) {
+			System.out.println("Congratulations! You created a horizontal line");
+		} else if (p1.isVertical(p2)) {
+			System.out.println("Inchecking two unequal values " + p1.getX() + ":" + p2.getX());
+			System.out.println("Congratulations! You created a vertical line");
+		} else {
+			System.out.println("Sorry, it's a slope!");
+		}
+		
 		System.out.println("----- Program End -----");
 
 		sc.close();
