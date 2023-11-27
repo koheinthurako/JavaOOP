@@ -1,7 +1,10 @@
 package Interface;
 
-public interface Shape {
+interface A {
+	String NAME = "Thet";
+}
 
+public interface Shape {
 //	 Abstract ထဲတွင်  implementation လုပ်တဲ့ method ကော မလုပ်တဲ့ method ကော ပါပေမယ့်
 //	 Interface ထဲတွင်ပါတဲ့ method တွေကတော့ abstract method တွေပဲဖြစ်ကြတယ်
 
