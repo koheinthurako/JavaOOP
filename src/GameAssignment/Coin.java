@@ -32,15 +32,7 @@ public class Coin extends Game {
 				int input = sc.nextInt();
 				if (input > face) {
 					System.out.println("Wrong guess! Choose number 1 or 2");
-					System.out.print("Do you want to play again ? Y/N : ");
-					sc.nextLine();
-					String yesOrNo = sc.nextLine().toLowerCase();
-					if (yesOrNo.equals("y")) {
-						checker = true;
-					} else {
-						checker = false;
-						super.showResult();
-					}
+					checker = super.continueOrNot();
 				} else if (input == randomCoin) {
 					if (input == 1) {
 						System.out.println("Correct! It's " + head);
@@ -48,32 +40,16 @@ public class Coin extends Game {
 						System.out.println("Correct! It's " + tail);
 					}
 					super.setScore(super.getScore() + 1);
-					super.setCount(super.getCount() + 1);
-					System.out.print("Do you want to play again ? Y/N : ");
-					sc.nextLine();
-					String yesOrNo = sc.nextLine().toLowerCase();
-					if (yesOrNo.equals("y")) {
-						checker = true;
-					} else {
-						checker = false;
-						super.showResult();
-					}
+					increaseCount();
+					checker = super.continueOrNot();
 				} else {
-					super.setCount(super.getCount() + 1);
+					increaseCount();
 					if (randomCoin == 1) {
 						System.out.println("Sorry! It's " + head);
 					} else {
 						System.out.println("Sorry! It's " + tail);
 					}
-					System.out.print("Do you want to play again ? Y/N : ");
-					sc.nextLine();
-					String yesOrNo = sc.nextLine().toLowerCase();
-					if (yesOrNo.equals("y")) {
-						checker = true;
-					} else {
-						checker = false;
-						super.showResult();
-					}
+					checker = super.continueOrNot();
 				}
 			} else {
 				System.out.println("Invalid Values! Please enter numbers only!");
@@ -81,7 +57,6 @@ public class Coin extends Game {
 			}
 
 		}
-
 		return true;
 	}
 

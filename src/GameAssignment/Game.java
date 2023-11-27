@@ -1,9 +1,14 @@
 package GameAssignment;
 
+import java.util.Scanner;
+
 public abstract class Game {
 
 	private int score;
 	private int count;
+	private boolean checker;
+
+	Scanner sc = new Scanner(System.in);
 
 	public Game(int score, int count) {
 		super();
@@ -26,16 +31,29 @@ public abstract class Game {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
+
 	public abstract boolean playGame(int selectedGame);
-	
+
 	public int increaseCount() {
-		
-		return 0;
+		this.count++;
+		return count;
 	}
-	
+
 	public void showResult() {
 		System.out.println("You played " + count + " : " + "you scored " + score);
+	}
+
+	public boolean continueOrNot() {
+		System.out.print("Do you want to play again ? Y/N : ");
+		String yesOrNo = sc.nextLine().toLowerCase();
+		if (yesOrNo.equals("y")) {
+			checker = true;
+			return checker;
+		} else {
+			checker = false;
+			showResult();
+			return checker;
+		}
 	}
 
 	@Override

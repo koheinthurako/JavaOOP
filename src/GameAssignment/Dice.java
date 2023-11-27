@@ -44,40 +44,16 @@ public class Dice extends Game {
 				int input = sc.nextInt();
 				if (input > max) {
 					System.out.println("Wrong guess! Dice numbers are between 1 to 6");
-					System.out.print("Do you want to play again ? Y/N : ");
-					sc.nextLine();
-					String yesOrNo = sc.nextLine().toLowerCase();
-					if (yesOrNo.equals("y")) {
-						checker = true;
-					} else {
-						checker = false;
-						super.showResult();
-					}
+					checker = super.continueOrNot();
 				} else if (input == randomDice) {
 					System.out.println("Correct! It's " + randomDice);
 					super.setScore(super.getScore() + 1);
-					super.setCount(super.getCount() + 1);
-					System.out.print("Do you want to play again ? Y/N : ");
-					sc.nextLine();
-					String yesOrNo = sc.nextLine().toLowerCase();
-					if (yesOrNo.equals("y")) {
-						checker = true;
-					} else {
-						checker = false;
-						super.showResult();
-					}
+					increaseCount();
+					checker = super.continueOrNot();
 				} else {
-					super.setCount(super.getCount() + 1);
+					increaseCount();
 					System.out.println("Sorry! It's " + randomDice);
-					System.out.print("Do you want to play again ? Y/N : ");
-					sc.nextLine();
-					String yesOrNo = sc.nextLine().toLowerCase();
-					if (yesOrNo.equals("y")) {
-						checker = true;
-					} else {
-						checker = false;
-						super.showResult();
-					}
+					checker = super.continueOrNot();
 				}
 			} else {
 				System.out.println("Invalid Values! Please enter numbers only!");
@@ -86,9 +62,10 @@ public class Dice extends Game {
 		}
 
 		return true;
-
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "Dice [min=" + min + ", max=" + max + "]";
