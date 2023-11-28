@@ -14,7 +14,7 @@ public class ShapeTest {
 		
 /*
 	ဒီနေရာမှာ Abstract အကြောင်းစမယ်!!!
-	အပေါ်မှာ polymorphism နည်းကိုသုံးပြီး "Shapes" DataTypes အတူတူတွေအဖြစ် objects တွေဆောက်ထားကြတယ်
+	အပေါ်မှာ polymorphism နည်းကိုသုံးပြီး "Shape" DataTypes အတူတူတွေအဖြစ် objects တွေဆောက်ထားကြတယ်
 	အောက်မှာကတော့ အဲ့ဒီ့ objects တွေကို loop ပတ်ပြီး area() method ကို ခေါ်ထားတယ် သို့သော် circle & square က
 	area တွက်တဲ့ implementation တွေကမတူညီကြဘူး အဲ့တော့ Shape ထဲကနေ area() method အလွတ်ကြီးကိုလှမ်းခေါ်တာက အဓိပ္ပာယ်မရှိဘူး
 	circle area() method က circle ထဲမှာပဲရှိရမယ် အဲ့တော့ Shape ထဲက area() method ကို ဖျက်လိုက်ပြန်ရင်လည်း child တွေကနေ
