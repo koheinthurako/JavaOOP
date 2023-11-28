@@ -29,6 +29,7 @@ public class Gamble {
 		if (gameNumber == 1) {
 			// Up casting polymorphism
 			game = new Dice(0, 0);
+//			game ထဲမှာ new Dice(, 0) ဆိုတဲ့ constructor ပါသွားတယ် ပြီးတော့ AcceptChoice(1) ကိုသွားအလုပ်လုပ်တယ်
 			AcceptChoice(gameNumber);
 		} else if (gameNumber == 2) {
 			game = new Coin(0, 0);
@@ -40,6 +41,8 @@ public class Gamble {
 
 	public void AcceptChoice(int selectedGame) {
 		game.playGame(selectedGame);
+//		new Dice(0, 0).playGame(1) ဆိုပြီးဖြစ်သွားတာကြောင့် new Dice() ဆိုလို့ Dice ထဲကိုရောက်သွားပြီး Dice Constructor ကနေ
+//		တန်ဖိုးတွေကို parent class ဆီကိုပါပေးလိုက်ပြီးတော့ Dice ထဲက playGame(1) ဆိုပြီးအလုပ်လုပ်သွားတယ် 
 	}
 
 }
