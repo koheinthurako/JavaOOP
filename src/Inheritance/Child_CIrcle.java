@@ -8,10 +8,12 @@ public class Child_CIrcle extends Circle{
 	
 	 public Child_CIrcle(String color, Length radius) {
 		 super(color, radius);
+		 this.radius = radius;
 	 }
 	 
 	 public void area() {
-			System.out.println(PI * radius.convertInches() * radius.convertInches()); 
+			System.out.println("Area from child_circle = " + PI * radius.convertInches() * radius.convertInches());
+			System.out.println("Area1 method = " + super.area1());
 	}
 
 }

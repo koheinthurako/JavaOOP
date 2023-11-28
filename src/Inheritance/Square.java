@@ -11,7 +11,7 @@ public class Square extends Shape{
 	}
 	
 	public void area() {
-		System.out.println(width.convertInches()*width.convertInches());
+		System.out.println("Area method from square = "+ width.convertInches()*width.convertInches());
 	}
 
 }
