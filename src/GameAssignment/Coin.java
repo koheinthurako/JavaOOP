@@ -17,7 +17,7 @@ public class Coin extends Game {
 	}
 
 	@Override
-	public boolean playGame(int selectedGame) {
+	public boolean playGame() {
 		Random r = new Random();
 		boolean checker = true;
 

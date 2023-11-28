@@ -32,7 +32,7 @@ public abstract class Game {
 		this.count = count;
 	}
 
-	public abstract boolean playGame(int selectedGame);
+	public abstract boolean playGame();
 
 	public int increaseCount() {
 		this.count++;
