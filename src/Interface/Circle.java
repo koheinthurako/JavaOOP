@@ -1,6 +1,6 @@
 package Interface;
 import RectangleAggregationArea.Length;
-
+	
 public class Circle implements Shape, A {
 //	class အချင်းချင်းဆိုရင် extends နဲ့ အမွေဆက်ခံပြီး interface နဲ့ class ဆိုရင် child class မှာ implements နဲ့အမွေဆက်ခံရတယ်
 //	interface အချင်းချင်းဖြစ်သွားပြီဆိုရင်တော့ extends နဲ့ ပဲ အမွေဆက်ခံရပြန်တယ်
