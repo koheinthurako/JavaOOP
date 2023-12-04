@@ -9,6 +9,8 @@ package Interface;
 //	interface ထဲက makeSound method က abstract method မို့ implements လုပ်ထားတဲ့ child class တွေမှာ override ပြန်လုပ်ပြီး အဲ့ထဲမှာ မူရင်း function ကိုပြန်ခေါ်ပေးရတယ်ိ
 //	ပြီးသွားရင်တော့ Array ထဲထည့်ပြီး loop ပတ်လိုက်တယ်
 
+//	အဓိကကတော့ interface ကို သုံးရခြင်းသည် project တစ်ခုမှာ obj တွေ method တွေအများကြီးပါလာလျှင် အဲ့တာတွေကို concept တစ်ခုတည်းမှာပဲ ဘုံထားပြီးထိန်းချင်ရင်သုံးသည် 
+
 class Person implements MakingSound {
 	public void speak() {
 		System.out.println(this.getClass().getSimpleName() + " : Hello");
