@@ -11,6 +11,9 @@ public class ShapeTest {
 //		Interface တွင်လည်း constructor ကနေ object ဆောက်လို့မရပါ
 		Shape s = new Circle(l1);
 		s.area();
+//		Shape.java ထဲတွင် methodOne() သည် static ရေးထား၍ Shape.methodOne() ဆိုပြီးလှမ်းခေါ်ပေးရတယ်
+		Shape.methodOne();
+		s.methodTwo();
 		
 	}
 
