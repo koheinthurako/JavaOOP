@@ -17,10 +17,26 @@ public class Circle implements Shape, A {
 	public void area() {
 		System.out.println(radius);
 		System.out.println((radius.convertInches() * radius.convertInches()) * PI);
+		System.out.println("This is area method from circle class");
 	}
 	
 	@Override
 	public void methodTwo() {
 		System.out.println("This is methodTwo from circle");
 	}
+}
+
+class Square implements Shape{
+	
+	Length radius;
+	
+	public Square(Length radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	public void area() {
+		System.out.println("This is area method from Square");
+	}
+	
 }
