@@ -18,10 +18,9 @@ public class Circle implements Shape, A {
 		System.out.println(radius);
 		System.out.println((radius.convertInches() * radius.convertInches()) * PI);
 	}
-
+	
 	@Override
 	public void methodTwo() {
 		System.out.println("This is methodTwo from circle");
 	}
-
 }

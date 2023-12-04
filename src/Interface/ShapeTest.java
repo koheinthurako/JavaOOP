@@ -13,6 +13,7 @@ public class ShapeTest {
 		s.area();
 //		Shape.java ထဲတွင် methodOne() သည် static ရေးထား၍ Shape.methodOne() ဆိုပြီးလှမ်းခေါ်ပေးရတယ်
 		Shape.methodOne();
+//		obj ကနေ တစ်ဆင့် ခေါ်ချင်ရင်တော့ Shape.java ထဲတွင် default ရေးပြီးခေါ်ပေးရမယ်
 		s.methodTwo();
 		
 	}
