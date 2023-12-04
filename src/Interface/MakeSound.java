@@ -11,7 +11,7 @@ package Interface;
 
 class Person implements MakingSound {
 	public void speak() {
-		System.out.println("Hello");
+		System.out.println(this.getClass().getSimpleName() + " : Hello");
 	}
 
 	@Override
@@ -23,7 +23,7 @@ class Person implements MakingSound {
 
 class Dog implements MakingSound {
 	public void bark() {
-		System.out.println("Wof Wof");
+		System.out.println(this.getClass().getSimpleName() + " : Wof Wof");
 	}
 
 	@Override
@@ -34,7 +34,7 @@ class Dog implements MakingSound {
 
 class Cat implements MakingSound {
 	public void crow() {
-		System.out.println("Meow Meow");
+		System.out.println(this.getClass().getSimpleName() + " : Meow Meow");
 	}
 
 	@Override
@@ -47,6 +47,7 @@ public class MakeSound {
 
 	public static void main(String[] args) {
 
+//		Up Casting PolyMorphism
 		MakingSound p = new Person();
 		MakingSound d = new Dog();
 		MakingSound c = new Cat();
