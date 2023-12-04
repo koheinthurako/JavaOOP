@@ -82,6 +82,14 @@ public class NestedClass {
 				System.out.println("This is testing2 method using anonymous inner class");
 			}
 		};
+		
+//		Interface class မှ method တွေကို ရိုးရိုး class တစ်ခုဆောက်ပြီးမှ object ထပ်ဆောက်ပြီးခေါ်သုံးခြင်းနှင့်
+//		object တစ်ခုဆောက်ပြီးမှ anonymous class အနေနဲ့ခေါ်သုံးခြင်းတို့၏ ကွာခြားချက်-----
+//		ရိုးရိုး class တစ်ခုဆောက်ပြီးမှ object တစ်ခုဆောက်ပြီးအလုပ်လုပ်ခိုင်းခြင်းသည် class တစ်ခုလုံး၏ ပုံမှန်အတိုင်းလုပ်ဆောင်နိုင်သည်များကို ကျယ်ကျယ်ပြန့်ပြန့် အသုံးပြုနိုင်ပြီး
+//		object ဆောက်ပြီးမှ anonymous class အနေနဲ့သုံးခြင်းသည် implementation တွေ method တွေသည် object တစ်လုံးထဲမှာပဲမှီခိုသွားပြီး
+//		normal class တစ်ခုလို ကျယ်ကျယ်ပြန့်ပြန့် အသုံးမပြုနိုင်တော့ပါ
+		
+//		Anonymous ကို GUI တွေနဲ့ချိတ်ဆက်ရေးတဲ့အပိုင်းမှာ အသုံးများတယ် ဥပမာ - button တွေအများကြီးထဲကို ကိုယ်စီအလုပ်လုပ်တဲ့ method/function တွေကိုရေးချင်တဲ့အခါ 
 
 		objAnonymous.testing2();
 
