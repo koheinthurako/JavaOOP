@@ -41,15 +41,9 @@ class Outer {
 class TestAnonymous implements Anonymous {
 
 	@Override
-	public void testing() {
-		System.out.println("This is anounymous test");
+	public int testing(int a) {
+		return a + 2;
 	}
-
-	@Override
-	public void testing2() {
-		System.out.println("This is anonymous testing2 method");
-	}
-
 }
 
 public class NestedClass {
@@ -63,36 +57,42 @@ public class NestedClass {
 		Outer.Inner inner = outer.new Inner();
 		System.out.println(inner.i);
 		inner.methodInner();
+		
+//		Anonymous.java Interface ထဲက abstract method ကိုအောက်မှာ 3 မျိုးခေါ်သုံးမယ်
 
-//		ဒါသည် ရိုးရိုး interface class ကိုအပေါ်က TestAnonymous မှ implements လှမ်းလုပ်ပြီး object ဆောက်ပြီးမှ အထဲက method ကိုခေါ်ခြင်း
+//		ဒါက ရိုးရိုး interface class ကိုအပေါ်က TestAnonymous မှ implements လှမ်းလုပ်ပြီး object ဆောက်ပြီးမှ အထဲက method ကိုခေါ်ခြင်း
 		TestAnonymous test = new TestAnonymous();
-		test.testing();
+		System.out.println("This is anounymous test from normal class " + test.testing(1));
 
 //		နောက်တစ်နည်းသည် အပေါ်ကလို interface ထဲက method ကိုအလုပ်လုပ်ဖို့ class ကြီးသီးသန့်တစ်ခုဆောက်မနေတော့ပဲ
 //		constructor ကနေကပ်တိုးလေး အလုပ်လုပ်ခိုင်းခြင်း အဲ့တာကို anonymous inner class လို့ခေါ်တယ် သူ့ကိုဆောက်ပြီးရင်တောင်
 //		interface Anonymous ထဲက method တွေက abstract method တွေဖြစ်လို့ method overriding ပြန်လုပ်ပေးရမယ်
 		Anonymous objAnonymous = new Anonymous() {
 			@Override
-			public void testing() {
-				System.out.println("This is test method using anonymous inner class");
-			}
-
-			@Override
-			public void testing2() {
-				System.out.println("This is testing2 method using anonymous inner class");
+			public int testing(int a) {
+				return a + 2;
 			}
 		};
-		
+		System.out.println("This is test method using anonymous inner class " + objAnonymous.testing(3));
+
 //		Interface class မှ method တွေကို ရိုးရိုး class တစ်ခုဆောက်ပြီးမှ object ထပ်ဆောက်ပြီးခေါ်သုံးခြင်းနှင့်
 //		object တစ်ခုဆောက်ပြီးမှ anonymous class အနေနဲ့ခေါ်သုံးခြင်းတို့၏ ကွာခြားချက်-----
 //		ရိုးရိုး class တစ်ခုဆောက်ပြီးမှ object တစ်ခုဆောက်ပြီးအလုပ်လုပ်ခိုင်းခြင်းသည် class တစ်ခုလုံး၏ ပုံမှန်အတိုင်းလုပ်ဆောင်နိုင်သည်များကို ကျယ်ကျယ်ပြန့်ပြန့် အသုံးပြုနိုင်ပြီး
 //		object ဆောက်ပြီးမှ anonymous class အနေနဲ့သုံးခြင်းသည် implementation တွေ method တွေသည် object တစ်လုံးထဲမှာပဲမှီခိုသွားပြီး
 //		normal class တစ်ခုလို ကျယ်ကျယ်ပြန့်ပြန့် အသုံးမပြုနိုင်တော့ပါ
-		
+
 //		Anonymous ကို GUI တွေနဲ့ချိတ်ဆက်ရေးတဲ့အပိုင်းမှာ အသုံးများတယ် ဥပမာ - button တွေအများကြီးထဲကို ကိုယ်စီအလုပ်လုပ်တဲ့ method/function တွေကိုရေးချင်တဲ့အခါ 
 
-		objAnonymous.testing2();
-
+		
+//		Interface ထဲမှာ abstract method တစ်ခုပဲရှိတဲ့အချိန်မှာ အဲ့ဒီ method တစ်ခုထဲကို override လုပ်ရမှာသိနေရင် normal class တွေ
+//		အပေါ်ကလို anonymous class တွေဆောက်စရာမလိုတော့ပဲ coding တွေကို ချုံ့လိုက်ချင်ရင် lambda expression ကိုသုံးတယ်
+//		lambda expression သည် javaScript က function expression နဲ့ဆင်တယ်
+//		Lambda Expression "->"
+		Anonymous objLambda = a -> {
+			return a + 3;
+		};
+		System.out.println("This is test method using lambda expression " + objLambda.testing(5));
+		
 	}
 
 }
