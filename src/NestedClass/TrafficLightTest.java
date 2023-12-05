@@ -14,9 +14,19 @@ public class TrafficLightTest {
 //		name သည် object ရဲ့ နာမည်ကို String အနေနဲ့ဆွဲထုတ်တယ် ပြီးမှ charAt နဲ့ character ကိုပြန်ထုတ်တယ်
 		System.out.println(light.name().charAt(0));
 //		values သည် TrafficLight array ပုံစံ return ပြန်ပေးသည်
-		TrafficLight [] lights = TrafficLight.values();
+		TrafficLight[] lights = TrafficLight.values();
 		System.out.println(Arrays.toString(lights));
-		
+
+//		Run တဲ့အခါမှာ Run Time Error ကို handle လုပ်ဖို့အတွက် Try Catch သုံး
+		try {
+			TrafficLight l2 = TrafficLight.valueOf("Orange");
+			System.out.println(l2.ordinal());
+//			catch(exception e) ဆိုတာ ဘာ error ပဲလာလာဆိုတဲ့ သဘောဖြစ်တယ်
+		} catch (IllegalArgumentException e) {
+//			console တွေမှာ error ကို သိသိသာသာ print ထုတ်ချင်ရင် System.err ကိုသုံး
+			System.err.println("Input Wrong!");
+		}
+
 	}
 
 }
