@@ -67,10 +67,12 @@ public enum Digit {
 		if (sc.hasNextInt()) {
 			int input = sc.nextInt();
 			Digit result = checkNumber(input);
-			if (result != null)
-				System.out.println(result.name() + " (" + result.getJapanese() + ")");
-			else
+			if (result != null) {
+				System.out.println("English : " + result.name());
+				System.out.println("Japanese : " + result.getJapanese());
+			} else {
 				System.err.println("Sorry you can check between 0 to 5");
+			}
 		} else {
 			System.err.println("Invalid Input! Plesae enter only numbers");
 		}
@@ -95,8 +97,8 @@ public enum Digit {
 		String input = sc.nextLine();
 		Digit result = checkString(input);
 		if (result != null) {
-			System.out.println("Digit : " + result.name());
-			System.out.println("Japanese : " + result.getJapanese());
+			System.out.println("Digit : " + result.getDigit());
+			System.out.println("English : " + result.name());
 		} else {
 			System.err.println("Invalid Input!");
 		}
