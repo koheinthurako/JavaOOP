@@ -3,7 +3,7 @@ package NestedNumberDictionary;
 import java.util.Scanner;
 
 public class DigitDictionary {
-
+	
 	public static void main(String[] args) {
 
 //		Digits သည် enum ဖြစ်လို့ constructor ကနေ object ဆောက်စရာမလိုပဲ className"." ခံပြီး တိုက်ရိုက်တန်ဖိုးလှမ်းထည့်လို့ရသည်

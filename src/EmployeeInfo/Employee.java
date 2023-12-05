@@ -1,7 +1,6 @@
 package EmployeeInfo;
 
-public class Employee implements CompanyData {
-
+public class Employee {
 	private int id;
 	private String name;
 

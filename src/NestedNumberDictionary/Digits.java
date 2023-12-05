@@ -56,5 +56,5 @@ public enum Digits {
 		default: return null;
 		}
 	}
-
+	
 }
