@@ -17,4 +17,6 @@ public enum TrafficLight {
 //	အောက်က variable တွေကို constant လို့ခေါ်တယ်
 	RED, GREEN, ORANGE
 	
+//	Enum ရဲ့ example project  NestedNumberDictionary Package ကိုဆက်ကြည့်ပါ
+	
 }
