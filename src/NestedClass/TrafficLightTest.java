@@ -18,7 +18,7 @@ public class TrafficLightTest {
 		System.out.println(Arrays.toString(lights));
 
 //		Run တဲ့အခါမှာ Run Time Error ကို handle လုပ်ဖို့အတွက် Try Catch သုံး
-//		Enum မှာ valueOf ကိုသုံးတဲ့အခါ try catch ကိုနဲ့စစ်ပေးသင့်တယ်
+//		Enum မှာ valueOf ကိုသုံးတဲ့အခါ try catch ကိုနဲ့စစ်ပေးသင့်တယ် valueOf သည် String ကနေ enum constant ကိုပြောင်းခြင်းဖြစ်တယ်
 		try {
 			TrafficLight l2 = TrafficLight.valueOf("Orange");
 			System.out.println(l2.ordinal());
