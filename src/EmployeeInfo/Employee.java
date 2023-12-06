@@ -24,20 +24,27 @@ public class Employee {
 			private char countryCode = id.charAt(0);
 			private char gender = id.charAt(1);
 			private String entrance_no = id.substring(2);
+			
+			public boolean checkEntranceNo(String entrance_no) {
+				if(entrance_no.length()==4) return true;
+				return false;
+			}
 
-			public boolean checkGender(String country) {
+			public void checkGender(String country) {
 				if (Character.getNumericValue(gender) == CompanyData.MALE) {
 					String confirmGender = "MALE";
-					show_Employee_Information(country, confirmGender);
+					if(checkEntranceNo(entrance_no)) show_Employee_Information(country, confirmGender);
+					else System.out.println(CompanyData.INVALID_USER_INF());
 				} else if (Character.getNumericValue(gender) == CompanyData.FEMALE) {
 					String confirmGender = "FEMALE";
-					show_Employee_Information(country, confirmGender);
+					if(checkEntranceNo(entrance_no)) show_Employee_Information(country, confirmGender);
+					else System.out.println(CompanyData.INVALID_USER_INF());
 				} else {
 					toString();
 					System.out.println(CompanyData.INVALID_USER_INF());
 				}
-				return true;
 			}
+			
 
 			public boolean checkID() {
 				System.out.println("Name : " + name);
