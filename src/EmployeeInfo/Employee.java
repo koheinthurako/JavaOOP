@@ -21,6 +21,7 @@ public class Employee {
 	public String userInformation(String id) {
 
 		class ID {
+			
 			private char countryCode = id.charAt(0);
 			private char gender = id.charAt(1);
 			private String entrance_no = id.substring(2);
@@ -45,9 +46,10 @@ public class Employee {
 				}
 			}
 			
-
 			public boolean checkID() {
+				
 				System.out.println("Name : " + name);
+				
 				if (Character.getNumericValue(countryCode) == CompanyData.JAPAN) {
 					String country = "JAPAN";
 					checkGender(country);
@@ -78,11 +80,12 @@ public class Employee {
 		checkInfo.checkID();
 
 		return toString();
+		
 	}
 
 	@Override
 	public String toString() {
-		return "";
+		return "-------------------------";
 	}
 
 }
