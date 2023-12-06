@@ -21,49 +21,56 @@ public class Employee {
 	public String userInformation(String id) {
 
 		class ID {
-			
+
 			private char countryCode = id.charAt(0);
 			private char gender = id.charAt(1);
 			private String entrance_no = id.substring(2);
-			
-			public boolean checkEntranceNo(String entrance_no) {
-				if(entrance_no.length()==4) return true;
-				return false;
+
+			public boolean checkEntranceNo() {
+				return entrance_no.length() == 4;
 			}
 
 			public void checkGender(String country) {
-				if (Character.getNumericValue(gender) == CompanyData.MALE) {
-					String confirmGender = "MALE";
-					if(checkEntranceNo(entrance_no)) show_Employee_Information(country, confirmGender);
-					else System.out.println(CompanyData.INVALID_USER_INF());
-				} else if (Character.getNumericValue(gender) == CompanyData.FEMALE) {
-					String confirmGender = "FEMALE";
-					if(checkEntranceNo(entrance_no)) show_Employee_Information(country, confirmGender);
-					else System.out.println(CompanyData.INVALID_USER_INF());
-				} else {
-					toString();
+				String confirmGender;
+				switch (Character.getNumericValue(gender)) {
+				case CompanyData.MALE:
+					confirmGender = "MALE";
+					if (checkEntranceNo())
+						show_Employee_Information(country, confirmGender);
+					else
+						System.out.println(CompanyData.INVALID_USER_INF());
+					break;
+				case CompanyData.FEMALE:
+					confirmGender = "FEMALE";
+					if (checkEntranceNo())
+						show_Employee_Information(country, confirmGender);
+					else
+						System.out.println(CompanyData.INVALID_USER_INF());
+					break;
+				default:
 					System.out.println(CompanyData.INVALID_USER_INF());
 				}
 			}
-			
+
 			public boolean checkID() {
 				System.out.println("Name : " + name);
-				if (Character.getNumericValue(countryCode) == CompanyData.JAPAN) {
-					String country = "JAPAN";
-					checkGender(country);
-					return true;
-				} else if (Character.getNumericValue(countryCode) == CompanyData.MYAN) {
-					String country = "MYANMAR";
-					checkGender(country);
-					return true;
-				} else if (Character.getNumericValue(countryCode) == CompanyData.OTHER) {
-					String country = "Other countries...";
-					checkGender(country);
-					return true;
-				} else {
+				String country;
+				switch (Character.getNumericValue(countryCode)) {
+				case CompanyData.JAPAN:
+					country = "JAPAN";
+					break;
+				case CompanyData.MYAN:
+					country = "MYANMAR";
+					break;
+				case CompanyData.OTHER:
+					country = "Other countries...";
+					break;
+				default:
 					System.out.println(CompanyData.INVALID_USER_INF());
 					return false;
 				}
+				checkGender(country);
+				return true;
 			}
 
 			public String show_Employee_Information(String country, String gender) {
@@ -72,13 +79,13 @@ public class Employee {
 				System.out.println("Entrance_No : " + entrance_no);
 				return "";
 			}
+
 		}
 
 		ID checkInfo = new ID();
 		checkInfo.checkID();
-
 		return toString();
-		
+
 	}
 
 	@Override
