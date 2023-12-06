@@ -47,9 +47,7 @@ public class Employee {
 			}
 			
 			public boolean checkID() {
-				
 				System.out.println("Name : " + name);
-				
 				if (Character.getNumericValue(countryCode) == CompanyData.JAPAN) {
 					String country = "JAPAN";
 					checkGender(country);
