@@ -36,10 +36,10 @@ public class Employee {
 			private String entrance_no = id.substring(2);
 
 			public boolean checkGender(String country) {
-				if (gender == CompanyData.MALE) {
+				if (Character.getNumericValue(gender) == CompanyData.MALE) {
 					String confirmGender = "MALE";
 					show_Employee_Information(country, confirmGender);
-				} else if (gender == CompanyData.FEMALE) {
+				} else if (Character.getNumericValue(gender) == CompanyData.FEMALE) {
 					String confirmGender = "FEMALE";
 					show_Employee_Information(country, confirmGender);
 				} else {
@@ -51,15 +51,15 @@ public class Employee {
 
 			public boolean checkID() {
 				System.out.println("Name : " + name);
-				if (countryCode == CompanyData.JAPAN) {
+				if (Character.getNumericValue(countryCode) == CompanyData.JAPAN) {
 					String country = "JAPAN";
 					checkGender(country);
 					return true;
-				} else if (countryCode == CompanyData.MYAN) {
+				} else if (Character.getNumericValue(countryCode) == CompanyData.MYAN) {
 					String country = "MYANMAR";
 					checkGender(country);
 					return true;
-				} else if (countryCode == CompanyData.OTHER) {
+				} else if (Character.getNumericValue(countryCode) == CompanyData.OTHER) {
 					String country = "Other countries...";
 					checkGender(country);
 					return true;
