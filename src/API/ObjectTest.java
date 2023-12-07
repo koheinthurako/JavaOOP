@@ -2,7 +2,7 @@ package API;
 
 //	ဒီနေရာမှာ Java.lang ရဲ့ Object တွေအကြောင်းစမယ် 
 
-class Point {
+class Point implements Cloneable{
 
 	private int x;
 	private int y;
@@ -49,11 +49,16 @@ class Point {
 		return this.x==p.x & this.y==p.y;
 	}
 
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	
 }
 
 public class ObjectTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 
 //		p1 ဆိုတဲ့ Point Object တစ်ခုကိုဆောက်လိုက်တယ်
 		Point p1 = new Point(1, 2);
@@ -71,6 +76,7 @@ public class ObjectTest {
 //		ဒါကြောင့် ဒီနေရာမှာ p1 ရဲ့ x တန်ဖိုး ကို ပြောင်းလိုက်တော့ p2 ကပါ same address ဖြစ်နေလို့ တန်ဖိုးတွေကလိုက်ပြောင်းနေခြင်းဖြစ်တယ်
 		p1.setX(3);
 		p2.setY(5);
+		System.out.println("--- Soft Copy Test ---");
 		System.out.println("p1 " + p1);
 		System.out.println("p2 " + p2);
 
@@ -91,6 +97,7 @@ public class ObjectTest {
 		
 //		ဒီနေရာမှာ p3 တန်ဖိုးကိုပြောင်းလိုက်လို့ Not Equal ပြန်ဖြစ်သွားတယ်
 		p3.setX(10);
+		System.out.println("--- Deep Copy Test ---");
 		System.out.println("p1 " + p1);
 		System.out.println("p3 " + p3);
 		System.out.println(p1.equals(p3) ? "Equal" : "Not Equal");
@@ -99,7 +106,34 @@ public class ObjectTest {
 //		Primitive DataTypes တွေဆိုရင်တော့ ပုံမှန်အတိုင်း comparison operator တွေသုံးတယ်
 //		သို့သော် Shadow Copy ကော Deep Copy ကော နှစ်ခုစလုံးက Coding တွေအများကြီး လိုက်ရေးနေရလို့ အားနည်းချက်တွေရှိတယ်
 //		ဒါကြောင့် Object.Clone() ဆိုတဲ့ နည်းလမ်းကိုသုံးတယ် Clone အကြောင်းဒီမှာစမယ်
+		
+//		Clone စလုပ်မယ်ဆိုရင် ဒီ class ကို Java.lang package ထဲမှာရှိတဲ့ Cloneable ဆိုတဲ့ interface ကို implements လှမ်းလုပ်ပေးရတယ်
+		Point p4 = (Point) p1.clone();
+		System.out.println("--- Clone Test ---");
+		System.out.println("p1 " + p1);
+		System.out.println("p4 " + p4);
+		System.out.println(p1.equals(p4) ? "Equal" : "Not Equal");
+		
+//		ဒီနေရာမှာ p4 ကို အပေါ်က p1 clone ပြီးလုပ်ထားပြီး p4 x တန်ဖိုးကိုပြောင်းလိုက်တော့ "Deep Copy" အတိုင်း result ထွက်လာတယ်
+		p4.setX(10);
+		System.out.println("--- Clone Test that change p4 x value ---");
+		System.out.println("p1 " + p1);
+		System.out.println("p4 " + p4);
+		System.out.println(p1.equals(p4) ? "Equal" : "Not Equal");
 
+/*
+	အဲ့တော့ clone အကြောင်းပြန်ရှင်းမယ် clone ကိုသုံးမယ်ဆိုရင် မူရင်း class မှာ Cloneable interface ကို implements(import) လှမ်းလုပ်ရမယ်
+	ပြီးတော့ override လုပ်ထားတဲ့ clone() method မှာ throws CloneNotSupportedException ဆိုပြီးထည့်ပေးရတယ် အဲ့တာကို နောက်အပိုင်းမှာရှင်းမယ်
+	အဲ့လို throws ပစ်လိုက်ရင် throws ပစ်ထားတဲ့ method တစ်ခုကို တခြားတစ်နေရာက လှမ်းခေါ်ရင် အဲ့ခေါ်တဲ့ method မှာလည်း throws ထပ်ပစ်ပေးရမယ်
+	အဲ့လိုသာ throws မပစ်ပေးရင် compile time error တက်မယ်
+	
+	ပြီးသွားရင် Point p4 = (Point) p1.clone(); ဒီလိုခေါ်ပေးရတာက clone() method ရဲ့ return က Object DataTypes ဖြစ်တယ်
+	return ရဲ့ Object က p1.clone() ထဲကိုဝင်လာတယ် ပြီးတော့ Object ကနေ Point ကို Down Casting ပြန်ချိန်းလိုက်ပြီး
+	တန်ဖိုးကို p4 ထဲထည့်လိုက်တယ် အဲ့တော့ သဘောက p4 သည် Java.lang ထဲက clone() method ရဲ့ return ပြန်လာတဲ့ Object တန်ဖိုးကို
+	Point အနေနဲ့ ပြန်ပြောင်းလိုက်ပြီး Point ထဲက method တွေ variables တွေအကုန်လုံးကို သုံးနိုင်သွားခြင်းဖြစ်တယ် အဲ့ဒါကြောင့် p4.setX() ဆိုတဲ့
+	method တွေပြန်သုံးနိုင်တယ် ပြီးတော့ Data တွေ အချိန်းအပြောင်းလုပ်လိုက်တဲ့အခါ ထွက်လာတဲ့ clone သုံးခြင်းရဲ့ result က Deep Copy နဲ့ သွားတူနေတယ်
+ */
+		
 	}
 
 }
