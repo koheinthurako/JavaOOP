@@ -13,7 +13,7 @@ package NestedClass;
 
 
 public enum TrafficLight {
-//	enum သည် static final string ရဲ့ final ပုံစံဖြစ်လို့ အကြီးစာလုံးတွေနဲ့ပဲရေးပေးရတယ်
+//	enum သည် static final ပုံစံဖြစ်လို့ အကြီးစာလုံးတွေနဲ့ပဲရေးပေးရတယ်
 //	အောက်က variable တွေကို constant လို့ခေါ်တယ်
 	RED, GREEN, ORANGE
 	

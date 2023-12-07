@@ -4,8 +4,8 @@ public enum Digits {
 //	Enum တွေမှာ constant တွေကြေညာရင် class ရဲ့ ထိပ်ဆုံးမှာပဲရေးရမယ် သူ့အပေါ်မှာ ဘာမှထပ်ရေးလို့မရဘူး
 	ZERO(0, "レイ"), ONE(1, "一"), TWO(2, "ニ"), THREE(3, "三"), FOUR(4, "四"), FIVE(5, "五");
 //	constant တစ်ခုချင်းစီကိုထပ်ပြီး values လေးတွေသတ်မှတ်ခြင်း
-//	ဒီနေရာမှာ သတိထားပါ ZERO(0) ဆိုတာသည် ZERO သည် enum ထဲတွင် object ဖြစ်သည် ဒါကြောင့် နောက်က (0) ပါလာခြင်းသည် constructor သဘောမျိုးဖြစ်သွား၍
-//	ထည့်လိုက်တဲ့ တန်ဖိုးတွေကို လက်ခံဖို့ အောက်မှာ constructor တစ်ခုထပ်ဆောက်ပေးဖို့လိုအပ်သည်
+//	ဒီနေရာမှာ သတိထားပါ ZERO(0) ဆိုတာသည် ZERO သည် enum ထဲတွင် object ဖြစ်သည် ဒါကြောင့် နောက်က (0, etc...) ပါလာခြင်းသည် constructor သဘောမျိုးဖြစ်သွား၍
+//	ထည့်လိုက်တဲ့ တန်ဖိုးတွေကို လက်ခံဖို့ အောက်မှာ constructor ထပ်ဆောက်ပေးဖို့လိုအပ်သည်
 	
 	private int digit;
 	private String jpDigit;
@@ -22,7 +22,7 @@ public enum Digits {
 		this.digit = digit;
 		this.jpDigit = jpDigit;
 	}
-
+	
 	public int getDigit() {
 		return digit;
 	}
@@ -34,7 +34,7 @@ public enum Digits {
 //	ENUM မှာ switch condition ကိုအသုံးများတယ်
 	public static Digits getEnumConst(int num) {
 		switch(num) {
-//		return ပြန်လိုတာတွေသည် ENUM object တွေဖြစ်လို့ ဟိုဘက်မှာ object မှတစ်ဆင့် ENUM method တွေကိုသုံးလို့ရတယ်
+//		return ပြန်လိုတာတွေသည် ENUM constant တွေဖြစ်လို့ ဟိုဘက်မှာ object မှတစ်ဆင့် ENUM method တွေကိုသုံးလို့ရတယ်
 		case 0: return ZERO;
 		case 1: return ONE;
 		case 2: return TWO;

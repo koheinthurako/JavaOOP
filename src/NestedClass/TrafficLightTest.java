@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class TrafficLightTest {
 
 	public static void main(String[] args) {
-//		TrafficLight DataTypes သည် Enum ဖြစ်နေတယ် enum သည် java ထဲက object တစ်ခုအနေနဲ့လုပ်ဆောက်သွားသည့်အတွက် object ထဲက method တွေအများကြီးကိုအသုံးပြုနိုင်တယ်
+//		TrafficLight DataTypes သည် Enum ဖြစ်နေတယ် enum သည် java ထဲက object တစ်ခုအနေနဲ့လုပ်ဆောင်သွားသည့်အတွက် object ထဲက method တွေအများကြီးကိုအသုံးပြုနိုင်တယ်
+//		TrafficLight.GREEN ဆိုတာ TrafficLight ENUM class ထဲက GREEN ကို OBJ အနေနဲ့ပြောင်းပြီး light ထဲကိုထည့်ပေးလိုက်တော့ light က ENUM Method တွေကိုသုံးလို့ရသွားတယ်
 		TrafficLight light = TrafficLight.GREEN;
 //		အောက်မှာ print ထုတ်တဲ့အခါ GREEN ဆိုပြီး output ထွက်သွားခြင်းသည် enum object ထဲမှ toSting() method ကိုယူသုံးသွားခြင်းဖြစ်တယ်
 		System.out.println(light);
@@ -18,7 +19,7 @@ public class TrafficLightTest {
 		System.out.println(Arrays.toString(lights));
 
 //		Run တဲ့အခါမှာ Run Time Error ကို handle လုပ်ဖို့အတွက် Try Catch သုံး
-//		Enum မှာ valueOf ကိုသုံးတဲ့အခါ try catch ကိုနဲ့စစ်ပေးသင့်တယ် valueOf သည် String ကနေ enum constant ကိုပြောင်းခြင်းဖြစ်တယ်
+//		Enum မှာ valueOf ကိုသုံးတဲ့အခါ try catch နဲ့စစ်ပေးသင့်တယ် valueOf သည် String ကနေ enum constant ကိုပြောင်းခြင်းဖြစ်တယ်
 		try {
 			TrafficLight l2 = TrafficLight.valueOf("Orange");
 			System.out.println(l2.ordinal());

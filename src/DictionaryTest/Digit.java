@@ -23,7 +23,7 @@ public enum Digit {
 	public String getJapanese() {
 		return japanese;
 	}
-
+	
 	public static Digit checkNumber(int input) {
 		switch (input) {
 		case 0:
@@ -64,8 +64,8 @@ public enum Digit {
 
 	public static void fromNumber() {
 		System.out.print("Please enter numbers from 0 to 5 (in digit) : ");
-		if (sc.hasNextInt()) {
-			int input = sc.nextInt();
+		try {
+			int input = Integer.parseInt(sc.nextLine());
 			Digit result = checkNumber(input);
 			if (result != null) {
 				System.out.println("English : " + result.name());
@@ -73,10 +73,10 @@ public enum Digit {
 			} else {
 				System.err.println("Sorry you can check between 0 to 5");
 			}
-		} else {
-			System.err.println("Invalid Input! Plesae enter only numbers");
+		} catch (NumberFormatException e) {
+			System.err.println("Invalid Values!");
 		}
-
+		DictionaryTest.continueOrNot();
 	}
 
 	public static void fromEnglish() {
@@ -89,7 +89,7 @@ public enum Digit {
 		} catch (IllegalArgumentException e) {
 			System.err.println("Invalid Input!");
 		}
-
+		DictionaryTest.continueOrNot();
 	}
 
 	public static void fromRomanji() {
@@ -102,6 +102,7 @@ public enum Digit {
 		} else {
 			System.err.println("Invalid Input!");
 		}
+		DictionaryTest.continueOrNot();
 	}
 
 	public static Digit chooseType(int selectedNum) {
@@ -117,6 +118,7 @@ public enum Digit {
 			return null;
 		default:
 			System.err.println("Wrong Choice!");
+			DictionaryTest.continueOrNot();
 			return null;
 		}
 	}
