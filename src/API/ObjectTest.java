@@ -134,6 +134,17 @@ public class ObjectTest {
 	method တွေပြန်သုံးနိုင်တယ် ပြီးတော့ Data တွေ အချိန်းအပြောင်းလုပ်လိုက်တဲ့အခါ ထွက်လာတဲ့ clone သုံးခြင်းရဲ့ result က Deep Copy နဲ့ သွားတူနေတယ်
  */
 		
+		
+//		Object String အကြောင်းစမယ် String သည် Java.lang package အောက်မှာရှိတယ်
+//		Object ဖြစ်တဲ့ String ထဲမှာလည်း method တွေအများကြီးရှိတယ်
+		String st = "Hello World";
+//		ဒီနေရာမှာ တကယ်တော့ String သည် Java မှာရေးထားပြီးသား Non-primitive Type class တစ်ခုဖြစ်တယ်
+//		အဲ့တာကို st ဆိုပြီး အပေါ်မှာ object ဆောက်ထားတာ ပုံမှန်ဆို object တစ်ခုဆောက်ရင် constructor ကိုလှမ်းခေါ်ရတယ်ဆိုပေမယ့်
+//		String ကတော့ အသုံးများလို့ "" Double Code လေးနဲ့ ရေးရုံဖြင့် တန်ဖိုးတွေထည့်ပေးနိုင်အောင် လုပ်ပေးထားခြင်းဖြစ်တယ် 
+//		အဲ့တာကို Systematically ရေးမယ်ဆိုရင်တော့ String st = new String("Hello World"); ဆိုပြီးရေးတယ်
+		
+		System.out.println(st);
+		
 	}
 
 }
