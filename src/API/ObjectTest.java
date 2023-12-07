@@ -143,7 +143,20 @@ public class ObjectTest {
 //		String ကတော့ အသုံးများလို့ "" Double Code လေးနဲ့ ရေးရုံဖြင့် တန်ဖိုးတွေထည့်ပေးနိုင်အောင် လုပ်ပေးထားခြင်းဖြစ်တယ် 
 //		အဲ့တာကို Systematically ရေးမယ်ဆိုရင်တော့ String st = new String("Hello World"); ဆိုပြီးရေးတယ်
 		
+		String st2 = st.concat(" hi");
+		System.out.println(st2);
+		System.out.println(st.toUpperCase());
 		System.out.println(st);
+//		String တွေသည် အပေါ်ကအတိုင်း တန်ဖိုးတစ်ခုထည့်လိုက်ရင် အဲ့အတိုင်းပဲရှိနေပြီး သူ့ကိုသုံးပြီး ဘယ်လို calculation လုပ်လုပ် assign မလုပ်မချင်း
+//		မူရင်း string တန်ဖိုးကမပြောင်းပါ အဲ့ဒီသဘောတရားကို immutable ဖြစ်တယ်လို့ခေါ်တယ် (Strings objects are immutable)!
+		System.out.println(st.compareTo(st2));
+		
+//		StringBuilder အကြောင်းစမယ် string builder, string buffer တို့က မူရင်း တန်ဖိုးကို ပြောင်းလဲစေတဲ့ object တွေဖြစ်တယ်
+//		သူတို့ Object ထဲက method တွေကိုသုံးတာနဲ့ မူရင်း string တန်ဖိုးတစ်ခုလုံးက assign မလုပ်ပဲနဲ့ ပြောင်းလဲသွားတယ်
+//		StringBuilder တို့ StringBuffer တို့ကို mutable ဖြစ်တယ်လို့ခေါ်တယ်
+		StringBuilder st3 = new StringBuilder("Hello ");
+		st3.append("Ko Hein");
+		System.out.println(st3);
 		
 	}
 
