@@ -158,6 +158,8 @@ public class ObjectTest {
 		st3.append("Ko Hein");
 		System.out.println(st3);
 		
+//		ပြီးရင် သူတို့ရဲ့ method တွေအကြောင်းကို ဆိုင်ရာ class တွေမှာ ဆက်ကြည့်ပါ
+		
 	}
 
 }

@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/API/ObjectTest.java=UTF-8
-encoding//src/AboutObjects/StringObjectTest.java=UTF-8
+encoding//src/API/StringBuilderTest.java=UTF-8
+encoding//src/API/StringObjectTest.java=UTF-8
 encoding//src/Aggregation/Department.java=UTF-8
 encoding//src/Aggregation/DepartmentTest.java=UTF-8
 encoding//src/DictionaryTest/DictionaryTest.java=UTF-8
