@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/API/ObjectTest.java=UTF-8
+encoding//src/AboutObjects/StringObjectTest.java=UTF-8
 encoding//src/Aggregation/Department.java=UTF-8
 encoding//src/Aggregation/DepartmentTest.java=UTF-8
 encoding//src/DictionaryTest/DictionaryTest.java=UTF-8
@@ -25,4 +26,3 @@ encoding//src/OOP/MethodRecursive.java=UTF-8
 encoding//src/OOP/OOPFlow.java=UTF-8
 encoding//src/RectangleAggregationArea/Length.java=UTF-8
 encoding//src/RectangleAggregationArea/Rectangle.java=UTF-8
-encoding//src/StringObjectTest/StringObjectTest.java=UTF-8
