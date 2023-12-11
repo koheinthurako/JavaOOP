@@ -47,6 +47,8 @@ public class StringBuilderTest {
 //		indexOf() နဲ့စစ်ရင် 0 ကနေစရေတွက်တယ်
 		System.out.println("indexOf() : " + stBuilder.indexOf("H"));
 		
+//		ပြီးရင် PalindromeTest ကိုသွားကြည့်ပါ
+		
 	}
 
 }
