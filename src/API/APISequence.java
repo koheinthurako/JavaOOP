@@ -2,7 +2,8 @@ package API;
 
 public class APISequence {
 	
-//	အစဉ်လိုက်ကြည့်ပါ
+//	API ထဲက ဟာတွေကို အောက်ကအတိုင်း အစဉ်လိုက်ကြည့်ပါ
+	
 //	1. Java.lang.Object
 //	2. Java.lang.String
 //	3. Java.lang.StringBuilder
