@@ -19,7 +19,9 @@ public class TimeObjectTest {
 		LocalDate date2 = LocalDate.now();
 		System.out.println("LocalDate.now() : " + date2);
 		
-//		LocalDate.parse() method ထဲတွင် LocalDate ရဲ့ syntax (0000-00-00) အတိုင်းပဲလက်ခံတယ် "-" မှရမယ်
+//		LocalDate.parse() method ထဲတွင် character sequence ကိုထည့်ပေးရတယ် ထည့်တဲ့အခါလည်း
+//		LocalDate ရဲ့ syntax (0000-00-00) အတိုင်းပဲလက်ခံတယ် ကြားမှာ "-" မှရမယ်
+//		အပေါ်က of မှာတော့ integer တွေထည့်ပေးရတာမို့ syntax ကို localDate က သူ့ဘာသာပြင်ပေးသွားတယ်
 		LocalDate date3 = LocalDate.parse("2021-03-12");
 		System.out.println("LocalDate.parse() : " + date3);
 //		သို့သော် ကိုယ်လိုချင်တဲ့ format အတိုင်းပြောင်းချင်ရင် DateTimeFormatter ကိုသုံးလို့ရတယ် နောက်မှအဲ့တာကိုထပ်ရှင်းမယ်
@@ -41,6 +43,21 @@ public class TimeObjectTest {
 //		တကယ်တော့ getMonth() method က LocalDate class ထဲမှာ Month ဆိုတဲ့ ENUM Class ထဲက
 //		constant တွေကို return ပြန်ပေးတဲ့ method ဖြစ်တယ် Month class ထဲမှာတော့ janToDec constant လတွေ ပါတယ်
 		System.out.println("getMonth() : " + date.getMonth());
+		
+//		getMonthValue() ကတော့ လတစ်လရဲ့ integer တန်ဖိုး(1-12) ကို return ပြန်ပေးတယ်
+		System.out.println("getMonthValue() : " + date.getMonthValue());
+		
+//		getYear() ကတော့ year ကို integer တန်ဖိုး return ပြန်ပေးတယ်
+		System.out.println("getYear() : " + date.getYear());
+		
+//		isLeapYear() ကတော့ leapYear ဟုတ်မဟုတ်ကို boolean return ပြန်ပေးတယ်
+		System.out.println("isLeapYear() : " + date.isLeapYear());
+		
+//		lengthOfMonth() ကတော့ လတစ်လရဲ့ ရက်အရေအတွက်ကို integer return ပြန်ပေးတယ်
+		System.out.println("lengthOfMonth() : " + date.lengthOfMonth());
+		
+//		lengthOfYear() ကတော့ နှစ်တစ်နှစ်ရဲ့ 365 ရက်ကို return ပြန်ပေးတယ် leapYear ဆိုရင်တော့ 366 ပြန်ပေးမယ်
+		System.out.println("lengthOfYear() : " + date.lengthOfYear());
 		
 		
 		
