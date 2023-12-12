@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
 
+import DurationChecker.Duration;
+
 public class TimeObjectTest {
 
 	public static void main(String[] args) {
@@ -91,11 +93,25 @@ public class TimeObjectTest {
 //		LocalTime အကြောင်းစမယ်
 		System.out.println("--- Local Time ---");
 		
-//		of(hour, minute, second, nanosecond)
-		LocalTime time = LocalTime.of(10, 15, 12);
+//		LocalTime သတ်မှတ်ခြင်းသုံးမျိုးရှိတယ် of, now, parse
+		
+//		of(hour, minute, second, nanosecond) nanosecond = 10 power -9 (9လုံး)
+		LocalTime time = LocalTime.of(10, 15, 12, 120102012);
 		System.out.println("LocalTime.of() : " + time);
 		LocalTime time2 = LocalTime.now();
 		System.out.println("LocalTime.now() : " + time2);
+//		parse လုပ်ရင် ထွက်လာတဲ့ now() ရဲ့ syntax အတိုင်းရေးပေးရမယ်
+		LocalTime time3 = LocalTime.parse("12:20:12");
+		System.out.println("LocalTime.parse() : " + time3 + "\n");
+//		ကြားထဲမှာ LocalTime ရဲ့ method တွေစမ်းပါ
+		
+		
+//		Duration အကြောင်းစမယ်
+		System.out.println("--- Duration ---");
+		
+//		အချိန်နှစ်ခုရဲ့ကွာခြားချက်ကိုလိုချင်ရင် Duration ကိုသုံးမယ်
+		java.time.Duration d = java.time.Duration.between(time, time2);
+		System.out.println("Duration.between() : " + d.toHours());
 		
 	}
 
