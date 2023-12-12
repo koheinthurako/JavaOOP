@@ -45,16 +45,18 @@ public class WrapperClassTest {
 //		parseXxx နဲ့လည်းရသလို xxx.valueOf() နဲ့လည်းရတယ် သို့သော် သူတို့ရဲ့ return ပြန်တန်ဖိုးကကွာတယ်
 		System.out.println("--- Test Type Casting ---");
 		String name = "12";
-		System.out.println(Integer.valueOf(name).toString().charAt(0) + "5");
+		System.out.println(Integer.valueOf(name).toString().charAt(0) + " : 5");
 //		valueOf() က instance/object ကို return ပြန်တယ် အဲ့ဒါကြောင့် သူ့နောက်မှာ "." ခံပြီး method တွေထပ်ခေါ်လို့ရတယ်
 		int unboxName = Integer.valueOf(name); // UnBoxing
-		System.out.println(unboxName);
+		System.out.println(unboxName+5);
 //		ဒါကြောင့် integer တန်ဖိုးထပ်လိုချင်ရင် သူ့ကို UnBoxing ပြန်လုပ်ပေးရတယ်
 		
 		String name2 = "1";
 		System.out.println(Integer.parseInt(name2));
 //		parseInt() က integer တန်ဖိုးကို return ပြန်တယ်
 //		Integer. ဆိုပြီး class ကနေလှမ်းခေါ်ထားပေမယ့် return က integer ဖြစ်သွားလို့ method တွေထပ်ခေါ်မရတော့ပါ
+		
+		
 		
 	}
 
