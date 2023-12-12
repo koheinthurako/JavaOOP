@@ -2,14 +2,22 @@ package API;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Period;
 
 public class TimeObjectTest {
 
 	public static void main(String[] args) {
 
 //		Java.util.Time အကြောင်းစမယ်
+//		1. LocalDate
+//		2. Period
+//		2.LocalTime
 		
+		
+//		1. LocalDate အကြောင်းစမယ်
 //		LocalDate ကိုသတ်မှတ်ခြင်းသုံးမျိုး of, now, parse
+		System.out.println("--- Local Date ---");
 		
 //		LocalDate.of() သည် ကိုယ်ကြိုက်တဲ့ ရက်စွဲကိုပေးလို့ရတယ်
 		LocalDate date = LocalDate.of(2023, 10, 15);
@@ -30,7 +38,7 @@ public class TimeObjectTest {
 		System.out.println("getDayOfMonth() : " + date2.getDayOfMonth());
 		
 //		DayOfWeek()
-//		ဒီမှာ DayOfWeek သည် java မှရေးထားပြီးသော enum class ဖြစ်တယ် အဲ့တာကြောင့် ထည့်လိုက်တဲ့ တန်ဖိုးတစ်ခုကို သူ့ထဲမှာရေးထားပြီးသား
+//		ဒီမှာ DayOfWeek သည် java မှရေးထားပြီးသော ENUM class ဖြစ်တယ် အဲ့တာကြောင့် ထည့်လိုက်တဲ့ တန်ဖိုးတစ်ခုကို သူ့ထဲမှာရေးထားပြီးသား
 //		MONDAY, TUEDAY... စတဲ့ constant တွေနဲ့တိုက်စစ်ပြီး မှန်တဲ့ constant ကို return ပြန်ပေးတယ်
 		DayOfWeek day = date.getDayOfWeek();
 		System.out.println("getDayOfWeek() : " + day);
@@ -57,9 +65,37 @@ public class TimeObjectTest {
 		System.out.println("lengthOfMonth() : " + date.lengthOfMonth());
 		
 //		lengthOfYear() ကတော့ နှစ်တစ်နှစ်ရဲ့ 365 ရက်ကို return ပြန်ပေးတယ် leapYear ဆိုရင်တော့ 366 ပြန်ပေးမယ်
-		System.out.println("lengthOfYear() : " + date.lengthOfYear());
+		System.out.println("lengthOfYear() : " + date.lengthOfYear() + "\n");
 		
 		
+//		2. Period အကြောင်းစမယ်
+//		Period ကတော့ localDate နှစ်ခုကြားခြားနားချက်ကိုသိချင်ရင် သုံးတယ်
+		System.out.println("--- Period ---");
+		
+//		Period.between()
+		LocalDate myBirthday = LocalDate.of(1999, 10, 15);
+		Period age = Period.between(myBirthday, LocalDate.now());
+		
+//		Period ထဲမှာ ရှိတဲ့ method များ getYears(), getMonths(), getDays()
+//		getYears() က localDate နှစ်ခုကြားက နှစ်ကွာခြားချက်ကို ထုတ်ပေးလို့ မိမိအသက်ကို integer အနေနဲ့ထုတ်ပေးတယ်
+		System.out.println("Period.between(), getYear() : " + (age.getYears() + 1) + " " + myBirthday.getDayOfWeek());
+		
+//		getMonths() က လနှစ်လအကြား ကွာခြားချက်တန်ဖိုးကို ရက်အလိုက်တွက်ချက်ပြီးမှ integer အနေနဲ့ထုတ်ပေးတယ်
+		System.out.println("Period.between(), getMonths() : " + age.getMonths());
+		
+//		getDays() ကတော့ localDate နှစ်ခုထဲက ရက်အချင်းချင်း ကွာခြားတဲ့ ကြားရက်ပမာဏကို integer အနေနဲ့ ထုတ်ပေးတယ်
+//		ဥပမာ - 1 & 12 ဆို 11 ရက်/ 15 & 12 ဆို 31 ရက်ကိုအခြေခံယူပြီး 15 မှ နောက်လ 12 ပြည့်တဲ့အထိလိုအပ်တဲ့ ရက်ပမာဏ ကို return ပြန်ပေးတယ်
+		System.out.println("Period.between(), getDays() : " + age.getDays() + "\n");
+
+		
+//		LocalTime အကြောင်းစမယ်
+		System.out.println("--- Local Time ---");
+		
+//		of(hour, minute, second, nanosecond)
+		LocalTime time = LocalTime.of(10, 15, 12);
+		System.out.println("LocalTime.of() : " + time);
+		LocalTime time2 = LocalTime.now();
+		System.out.println("LocalTime.now() : " + time2);
 		
 	}
 
