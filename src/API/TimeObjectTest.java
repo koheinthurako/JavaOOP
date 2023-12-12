@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
 
-import DurationChecker.Duration;
-
 public class TimeObjectTest {
 
 	public static void main(String[] args) {
