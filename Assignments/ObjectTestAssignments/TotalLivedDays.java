@@ -3,7 +3,7 @@ package ObjectTestAssignments;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class DateAssignment {
+public class TotalLivedDays {
 	
 	public static Scanner sc = new Scanner(System.in);
 	public static int birth_year , birth_month, birth_day = 0;
