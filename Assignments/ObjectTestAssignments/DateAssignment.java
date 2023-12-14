@@ -36,8 +36,9 @@ public class DateAssignment {
 		        }
 				
 				System.out.println("\nTotal numbers days you have lived : " +
-						(total_period_days - presentDay.getDayOfYear() -
-						(myBirthday.lengthOfYear() - myBirthday.getDayOfYear())) + " Days");
+						(total_period_days -
+						 (myBirthday.getDayOfYear() +
+							 (presentDay.lengthOfYear() - presentDay.getDayOfYear())) + " Days"));
 				
 				continueOrNot();
 			} else {

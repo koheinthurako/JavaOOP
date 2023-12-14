@@ -16,14 +16,6 @@ public class MondayCount {
 		int countMonday = 0;
         LocalDate startDate = LocalDate.of(YEAR, MONTH, DAY);
         
-//        int endDay = startDate.lengthOfYear();
-//        for(int startDay = startDate.getDayOfMonth(); startDay <= endDay; startDay++) {
-//        	LocalDate checkDay = LocalDate.of(2023, 1, startDay);
-//        	if(checkDay.getDayOfWeek() == DayOfWeek.MONDAY) {
-//        		countMonday++;
-//        	}
-//        }
-        
         while(startDate.getYear() == YEAR) {
         	if(startDate.getDayOfWeek() == DayOfWeek.MONDAY) {
         		countMonday++;
