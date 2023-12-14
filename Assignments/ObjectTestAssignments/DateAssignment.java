@@ -20,7 +20,6 @@ public class DateAssignment {
 				LocalDate presentDay = LocalDate.now();
 				int total_period_days = 0;
 				for (int year = myBirthday.getYear(); year <= presentDay.getYear(); year++) {
-
 					LocalDate startYear = LocalDate.of(year, START_MONTH, START_DAY);
 					if (startYear.isLeapYear()) {
 						total_period_days += startYear.lengthOfYear();
@@ -70,7 +69,7 @@ public class DateAssignment {
 			
 			System.out.print("Please enter your birth day in number (DD) : ");
 			int day = Integer.parseInt(sc.nextLine());
-			int daysInMonth = LocalDate.of(year, month, 1).lengthOfMonth();
+			int daysInMonth = LocalDate.of(year, month, START_DAY).lengthOfMonth();
 			if(day < 1 | day > daysInMonth) {
 				System.err.println("Invalid Day Input!");
 				return false;
