@@ -97,7 +97,7 @@ public class TotalLivedDays {
 	
 	public static void continueOrNot() {
 		System.out.print("Do you want to start again ? Y/N : ");
-		if(sc.nextLine().equals("y")) {
+		if(sc.nextLine().toLowerCase().equals("y")) {
 			checker = true;
 		} else {
 			checker = false;
