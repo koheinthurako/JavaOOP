@@ -76,7 +76,7 @@ public class ObjectTest {
 //		ဒါကြောင့် ဒီနေရာမှာ p1 ရဲ့ x တန်ဖိုး ကို ပြောင်းလိုက်တော့ p2 ကပါ same address ဖြစ်နေလို့ တန်ဖိုးတွေကလိုက်ပြောင်းနေခြင်းဖြစ်တယ်
 		p1.setX(3);
 		p2.setY(5);
-		System.out.println("--- Soft Copy Test ---");
+		System.out.println("--- Shadow Copy Test ---");
 		System.out.println("p1 " + p1);
 		System.out.println("p2 " + p2);
 

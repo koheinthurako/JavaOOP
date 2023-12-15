@@ -4,15 +4,15 @@ public class APISequence {
 	
 //	API ထဲက ဟာတွေကို အောက်ကအတိုင်း အစဉ်လိုက်ကြည့်ပါ
 	
-//	1. Java.lang.Object
-//	2. Java.lang.String
-//	3. Java.lang.StringBuilder
-//	4. Java.lang.Math
+//	1. ObjectTest
+//	2. StringObjectTest
+//	3. StringBuilder
+//	4. MathObjectTest
 //	5. Wrapper Class
-//	6. Java.util.Time
-//	7. Java.util.ArraysClass
+//	6. TimeObjectTest
+//	7. ArraysClassTest
 //	8. Exception Handling
-//	9. Collection
+//	9. CollectionTest
 	
 	
 }
