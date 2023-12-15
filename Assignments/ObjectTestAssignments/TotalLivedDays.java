@@ -54,7 +54,7 @@ public class TotalLivedDays {
 		try {
 			System.out.print("Please enter your birth year (YYYY) : ");
 			int year = Integer.parseInt(sc.nextLine());
-			if(year > LocalDate.now().getYear()) {
+			if(year < START_DAY | year > LocalDate.now().getYear()) {
 				System.err.println("Invalid Year Input!");
 				return false;
 			}
