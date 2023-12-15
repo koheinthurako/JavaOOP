@@ -62,7 +62,7 @@ public class TotalLivedDays {
 			
 			System.out.print("Please enter your birth month in number (MM) : ");
 			int month = Integer.parseInt(sc.nextLine());
-			if(month < 1 | month > 12) {
+			if(month < START_MONTH | month > 12) {
 				System.err.println("Invalid Month Input!");
 				return false;
 			}
@@ -71,7 +71,7 @@ public class TotalLivedDays {
 			System.out.print("Please enter your birth day in number (DD) : ");
 			int day = Integer.parseInt(sc.nextLine());
 			int daysInMonth = LocalDate.of(year, month, START_DAY).lengthOfMonth();
-			if(day < 1 | day > daysInMonth) {
+			if(day < START_DAY | day > daysInMonth) {
 				System.err.println("Invalid Day Input!");
 				return false;
 			}
