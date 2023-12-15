@@ -10,6 +10,8 @@ public class APISequence {
 //	4. Java.lang.Math
 //	5. Wrapper Class
 //	6. Java.util.Time
+//	7. Java.util.ArraysClass
+//	8. Exception Handling
 	
 	
 }

@@ -11,7 +11,7 @@ public class TotalLivedDays {
 	public static final int START_MONTH = 1;
 	public static final int START_DAY = 1;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		System.out.println("Welcome to my program! \nLet's calculate how many days you have lived... \n");
 		
 		while(checker) {
@@ -27,14 +27,7 @@ public class TotalLivedDays {
 						total_period_days += startYear.lengthOfYear();
 					}
 				}
-				
-				Thread loadingThread = new Thread(() -> loadingAnswer());
-				loadingThread.start();
-				try {
-		            Thread.sleep(2000);
-		        } catch (Exception e) {
-		        }
-				
+				loadingAnswer();
 				System.out.println("\nTotal numbers days you have lived : " +
 						(total_period_days -
 						 (myBirthday.getDayOfYear() +
@@ -84,15 +77,12 @@ public class TotalLivedDays {
 		return true;
 	}
 	
-	public static void loadingAnswer() {
+	public static void loadingAnswer() throws InterruptedException {
 		String[] stars = {"* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "*"};
-		try {
             for (String star : stars) {
-                System.out.print(star);
-                Thread.sleep(200);
+            	Thread.sleep(200);
+            	System.out.print(star);
             }
-        } catch (Exception e) {
-        }
 	}
 	
 	public static void continueOrNot() {

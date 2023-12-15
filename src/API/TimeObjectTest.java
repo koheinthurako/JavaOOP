@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class TimeObjectTest {
 
@@ -12,8 +13,9 @@ public class TimeObjectTest {
 //		Java.util.Time အကြောင်းစမယ်
 //		1. LocalDate
 //		2. Period
-//		2.LocalTime
-		
+//		3.	LocalTime
+//		4. Duration 
+//		5. DateTimeFormatter
 		
 //		1. LocalDate အကြောင်းစမယ်
 //		LocalDate ကိုသတ်မှတ်ခြင်းသုံးမျိုး of, now, parse
@@ -103,13 +105,24 @@ public class TimeObjectTest {
 		System.out.println("LocalTime.parse() : " + time3 + "\n");
 //		ကြားထဲမှာ LocalTime ရဲ့ method တွေစမ်းပါ
 		
-		
 //		Duration အကြောင်းစမယ်
 		System.out.println("--- Duration ---");
 		
 //		အချိန်နှစ်ခုရဲ့ကွာခြားချက်ကိုလိုချင်ရင် Duration ကိုသုံးမယ်
 		java.time.Duration d = java.time.Duration.between(time, time2);
+//		ဒီနေရာမှာ time နှစ်ခုနှိုင်းယှဉ်တော့ () ထဲက အရှေ့က တန်ဖိုးကကြီးနေရင် "-" နဲ့ output ပြန်လာတာကိုသတိထားပါ
+		System.out.println("Duration : " + d);
 		System.out.println("Duration.between() : " + d.toHours());
+		
+//		DateTimeFormatter အကြောင်းစမယ် input ထက် output ကို format ကျကျလေးထုတ်ချင်ရင်သုံးတယ်
+		LocalDate dtfDate = LocalDate.now();
+//		Pattern ထဲက d/MMMM/YYYY စတာလေးတွေကိုလေ့လာပါ
+		DateTimeFormatter format1 = DateTimeFormatter.ofPattern("dd/-MM/-yyyy" );
+		System.out.println("DateTimeFormatter.ofPattern() : " + dtfDate.format(format1));
+//		ထပ်သတိပြုစရာ LocalDate တစ်ခုကို parse နဲ့ တည်ဆောက်ရင် သူ့ရဲ့ original format pattern အတိုင်းတည်ဆောက်ရတယ် အဲ့လိုမဟုတ်ပဲ
+//		ကိုယ့် format နဲ့ကိုယ်တည်ဆောက်ချင်ရင် အောက်ကလို DateTimeFormatter ကိုတွဲသုံးလို့ရတယ်
+		LocalDate dtfTest = LocalDate.parse("25/-10/-2023", format1);
+		System.out.println("LocalDate.parse + DateTimeFormatter : " + dtfTest.format(format1));
 		
 	}
 
