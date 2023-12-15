@@ -8,7 +8,7 @@ import java.util.List;
 //	Comparable အကြောင်းကိုကျော်ပြီး အောက်ဆုံးကိုဖတ်ပြီးမှ ဒီကိုပြန်လာဖတ်ပါ 
 //	Comparable က interface ဖြစ်လို့ သူ့ထဲမှာ implement မလုပ်ရသေးတဲ့ compareTo() method ကို override ပြန်လုပ်ပေးရတယ်
 //	Comparable<T> မှာ T က data type တစ်ခုခုကိုထည့်ခိုင်းတာ ထည့်လိုက်တဲ့ data type က compareTo() ထဲကို parameter မှတစ်ဆင့်ဝင်သွားမယ်
-class Person implements Comparable<Person>{
+class Person implements Comparable<Person> {
 	private int id;
 	private String name;
 	private int age;
@@ -56,6 +56,24 @@ class Person implements Comparable<Person>{
 		return this.name.compareTo(o.name); // string တွေ sort
 	}
 
+}
+
+class Point1<T, S> {
+//	T ဆိုတာ unknown data type တစ်ခုဖြစ်တယ် တကယ်တော့ variable တစ်လုံးကို data type အနေနဲ့သုံးလိုက်တဲ့သဘော
+	T x;
+	S y;
+
+	public Point1(T x, S y) {
+		super();
+		this.x = x;
+		this.y = y;
+	}
+
+	@Override
+	public String toString() {
+		return "Point1 [x=" + x + ", y=" + y + "]";
+	}
+	
 }
 
 public class CollectionTest {
@@ -161,13 +179,13 @@ public class CollectionTest {
 		persons.add(new Person(1, "Thet", 20));
 		persons.add(new Person(2, "Zaw", 18));
 		persons.add(new Person(3, "Hein", 25));
-		
+
 //		ဒီမှာ collection.sort ကိုရိုးရိုးသုံးရင် error တက်မယ် ဘာလို့ဆို sort က data type တူတဲ့ဟာတွေထဲကမှ တန်ဖိုးတစ်ခုထဲကိုပဲနှိုင်းယှဉ်ပြီး sorting လုပ်လို့
 //		persons ထဲမှာကျတော့ object တွေ object တွေထဲမှာမှ data က 3 ခုစီပါနေတော့ sort က ဘာကိုထုတ်ပြရမှန်းမသိဘူး
 //		ဒါကြောင့် ကိုယ်ပိုင် user defined object တွေကို sorting စီမယ်ဆိုရင်
 //		ဟိုးအပေါ်က Person class ထိပ်ဆုံးမှာ Comparable interface class ကို implements လုပ်ပေးရတယ်
 		Collections.sort(persons);
-		
+
 //		ဒီ Person data type နေရာမှာ ပုံမှန်ဆို default Object ဆိုပေမယ့် လက်ခံမယ့် data type က
 //		ဟိုးအပေါ်က Person class ဖြစ်နေလို့ Person data type တစ်ခါတည်းထည့်လိုက်တယ် 
 		for (Person person : persons) {
@@ -176,14 +194,24 @@ public class CollectionTest {
 			System.out.println(person);
 		}
 //			အဲ့တော့ person က Person class ရဲ့ object ဖြစ်သွားပြီး class ထဲက method တွေယူသုံးလို့ရသွားတယ်
-			
-		
+
 //		Collection ဆိုတာတကယ်တော့ ထွေထွေထူးထူးမဟုတ်ပဲ မတူတဲ့ data type တွေကို array လို object အနေနဲ့ စုစည်းထားနိုင်ပြီး
 //		လိုအပ်လာရင် Wrapper class တွေသုံးပြီး data type တွေပြောင်းလဲကာ လွယ်လွယ်ကူကူ calculation လုပ်သွားနိုင်တယ်
 //		data type တွေကိုလည်း java support ပေးတဲ့ data type တွေအပြင် ကိုယ်ပိုင် class တွေကိုရေးပြီးအပေါ်ကလို data type အနေနဲ့
 //		သုံး object ဆောက်ပြီး အသုံးပြုနိုင်တယ်
+
 		
 		
+//		အပေါ်က Point1 class ကို object ဆောက်မယ် သို့သော် constructor parameter ထဲကို ပေးမယ့် data type ကို အတိအကျမသိလို့
+//		generalist အနေနဲ့ Point1 class ထဲမှာ "<T>" ဆိုပြီးရေးလိုက်တယ် သွားကြည့်
+//		အဲ့တာကြောင့် အောက်ကအတိုင်း object ဆောက်တဲ့အခါမှာ သုံးမယ့် data type ကိုတစ်ခါတည်းထည့်ပေးလိုက်လို့ရတယ် 
+		Point1<Integer, Character> p1 = new Point1<Integer, Character>(1, 'c');
+//		object တစ်ခုထဲမှာပဲ မတူတဲ့ data type ပါလာရင်တော့ ပါသလောက် object ဆောက်တဲ့နေရာမှာ အောက်ကလိုထည့်ပေးရပြီး
+//		Point1 class မှာလည်း ထိပ်ဆုံးမှာ generalist data type 2 လုံးသွားထည့်ပေးရတယ် သွားကြည့်
+		Point1<Double, String> p2 = new Point1<Double, String>(1.2, "Hello");
+		System.out.println(p1);
+		System.out.println(p2);
+
 	}
 
 }
