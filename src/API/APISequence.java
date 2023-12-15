@@ -12,6 +12,7 @@ public class APISequence {
 //	6. Java.util.Time
 //	7. Java.util.ArraysClass
 //	8. Exception Handling
+//	9. Collection
 	
 	
 }
