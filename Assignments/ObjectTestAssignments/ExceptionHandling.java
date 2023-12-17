@@ -15,7 +15,7 @@ public class ExceptionHandling {
 	public static int birthMonth = 0;
 	public static int birthDay = 0;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		programStart();
 		
@@ -40,15 +40,23 @@ public class ExceptionHandling {
 		}
 	}
 	
-	public static int calculateTotalMonths() {
+	public static void loadingAnswer() throws InterruptedException {
+		String[] stars = {"* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "*"};
+            for (String star : stars) {
+            	Thread.sleep(200);
+            	System.out.print(star);
+            }
+	}
+	
+	public static int calculateTotalMonths() throws InterruptedException {
 		LocalDate now = LocalDate.now();
 		LocalDate birth = LocalDate.of(birthYear, birthMonth, birthDay);
 		int totalMonths = 0;
 		for(int year = birth.getYear(); year < now.getYear(); year++) {
-			totalMonths += birth.lengthOfMonth();
+			totalMonths += MONTH_VALUE;
 		}
-		totalMonths += birth.lengthOfMonth() - birth.getMonthValue();
-		return totalMonths-birth.getMonthValue()-(now.lengthOfMonth() - now.getMonthValue());
+		loadingAnswer();
+		return totalMonths;
 	}
 	
 	public static void requestDay() {
@@ -65,12 +73,12 @@ public class ExceptionHandling {
 					START_YEAR + " and " + END_YEAR + " : ", START_YEAR, END_YEAR);
 	}
 	
-	public static void programStart() {
+	public static void programStart() throws InterruptedException {
 		System.out.println("Let's calculate how many months have you lived!");
 		requestYear();
 		requestMonth();
 		requestDay();
-		System.out.println(calculateTotalMonths());
+		System.out.println("\nThere are " + calculateTotalMonths() + " months you have lived.");
 	}
 
 }
