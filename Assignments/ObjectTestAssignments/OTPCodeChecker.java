@@ -65,11 +65,8 @@ public class OTPCodeChecker {
 
 	public static String sendOTPCode() {
 		System.out.print("Here is your OTP Code : ");
-		List<Object> shuffledList = new ArrayList<>(mainList);
-		Collections.shuffle(shuffledList);
-		@SuppressWarnings("unchecked")
-		// shuffledList.get() က object return ပြန်တာကို List<Object> အနေနဲ့ type casting ပြန်လုပ်
-		List<Object> result = (List<Object>) shuffledList.get(0);
+		Collections.shuffle(mainList);
+		List<Object> result = (List<Object>) mainList.get(0);
 		StringBuilder otpStringBuilder = new StringBuilder();
 		for (Object otp : result) {
 			otpStringBuilder.append(otp);
