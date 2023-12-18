@@ -61,7 +61,7 @@ class Person implements Comparable<Person> {
 }
 
 class Point1<T, S> {
-//	T ဆိုတာ unknown data type တစ်ခုဖြစ်တယ် တကယ်တော့ variable တစ်လုံးကို data type အနေနဲ့သုံးလိုက်တဲ့သဘော
+//	T,S ဆိုတာ unknown data type ဖြစ်တယ် တကယ်တော့ variable တစ်လုံးကို data type အနေနဲ့သုံးလိုက်တဲ့သဘော type parameter လို့လည်းခေါ်တယ်
 	T x;
 	S y;
 
@@ -194,25 +194,26 @@ public class CollectionTest {
 //		ဒီ Person data type နေရာမှာ ပုံမှန်ဆို default Object ဆိုပေမယ့် လက်ခံမယ့် data type က
 //		ဟိုးအပေါ်က Person class ဖြစ်နေလို့ Person data type တစ်ခါတည်းထည့်လိုက်တယ် အောက်ကဟာက looping သပ်သပ်ပဲ 
 		for (Person person : persons) {
+//			အဲ့တော့ person က Person class ရဲ့ object ဖြစ်သွားပြီး class ထဲက method တွေယူသုံးလို့ရသွားတယ်
 //			if(person.getAge() < 20)
 //				System.out.println(person);
 			System.out.println(person);
 		}
-//			အဲ့တော့ person က Person class ရဲ့ object ဖြစ်သွားပြီး class ထဲက method တွေယူသုံးလို့ရသွားတယ်
+
 
 //		Collection ဆိုတာတကယ်တော့ ထွေထွေထူးထူးမဟုတ်ပဲ မတူတဲ့ data type တွေကို array လို object အနေနဲ့ စုစည်းထားနိုင်ပြီး
 //		လိုအပ်လာရင် Wrapper class တွေသုံးပြီး data type တွေပြောင်းလဲကာ လွယ်လွယ်ကူကူ calculation လုပ်သွားနိုင်တယ်
 //		data type တွေကိုလည်း java support ပေးတဲ့ data type တွေအပြင် ကိုယ်ပိုင် class တွေကိုရေးပြီးအပေါ်ကလို data type အနေနဲ့
-//		သုံး object ဆောက်ပြီး အသုံးပြုနိုင်တယ်
+//		object ဆောက်ပြီး အသုံးပြုနိုင်တယ်
 
 		
 		
 //		အပေါ်က Point1 class ကို object ဆောက်မယ် သို့သော် constructor parameter ထဲကို ပေးမယ့် data type ကို အတိအကျမသိလို့
-//		generalist အနေနဲ့ Point1 class ထဲမှာ "<T>" ဆိုပြီးရေးလိုက်တယ် သွားကြည့်
+//		generic အနေနဲ့ Point1 class ထဲမှာ "<T>" ဆိုပြီးရေးလိုက်တယ် သွားကြည့်...
 //		အဲ့တာကြောင့် အောက်ကအတိုင်း object ဆောက်တဲ့အခါမှာ သုံးမယ့် data type ကိုတစ်ခါတည်းထည့်ပေးလိုက်လို့ရတယ် 
 		Point1<Integer, Character> p1 = new Point1<Integer, Character>(1, 'c');
 //		object တစ်ခုထဲမှာပဲ မတူတဲ့ data type ပါလာရင်တော့ ပါသလောက် object ဆောက်တဲ့နေရာမှာ အောက်ကလိုထည့်ပေးရပြီး
-//		Point1 class မှာလည်း ထိပ်ဆုံးမှာ generalist data type 2 လုံးသွားထည့်ပေးရတယ် သွားကြည့်
+//		Point1 class မှာလည်း ထိပ်ဆုံးမှာ generic data type 2 လုံးသွားထည့်ပေးရတယ် သွားကြည့်...
 		Point1<Double, String> p2 = new Point1<Double, String>(1.2, "Hello");
 		System.out.println(p1);
 		System.out.println(p2);
