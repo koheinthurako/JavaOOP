@@ -1,7 +1,8 @@
 package ObjectTestAssignments;
 
+import java.lang.NumberFormatException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.Scanner;
 
 public class ExceptionHandling {
@@ -23,23 +24,6 @@ public class ExceptionHandling {
 		
 	}
 	
-	public static int checkInput(String msg, int minValue, int maxValue) {
-		while(true) {
-			System.out.print(msg);
-			try {
-				int year = Integer.parseInt(sc.nextLine());
-				if(year < minValue | year > maxValue) {
-					System.err.println("Please try again...");
-				} else {
-					System.out.println("---------------------------------------");
-					return year;
-				}
-			} catch (NumberFormatException e) {
-				System.err.println("Please enter numbers only...");
-			}
-		}
-	}
-	
 	public static void loadingAnswer() throws InterruptedException {
 		String[] stars = {"* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "*"};
             for (String star : stars) {
@@ -56,21 +40,49 @@ public class ExceptionHandling {
 			totalMonths += MONTH_VALUE;
 		}
 		loadingAnswer();
-		return totalMonths;
+		return totalMonths + now.getMonthValue() - birth.getMonthValue();
 	}
 	
-	public static void requestDay() {
-		int daysInMonth = LocalDate.of(birthYear, birthMonth, START_VALUE).lengthOfMonth();
-		birthDay = checkInput("Please enter your birth day : ", START_VALUE, daysInMonth);
+	public static int checkInput(String msg, int minValue, int maxValue, String errorValue) {
+		while(true) {
+			System.out.print(msg);
+			try {
+				int birthDate = Integer.parseInt(sc.nextLine());
+				if(birthDate < minValue | birthDate > maxValue) {
+					System.err.println("Invalid " + errorValue + "! Please try again...");
+				} else {
+					System.out.println("------------------------");
+					return birthDate;
+				}
+			} catch (NumberFormatException e) {
+				System.err.println("Please enter numbers only...");
+			}
+		}
+	}
+	
+	public static int requestDay() {
+		while(true) {
+			System.out.print("Please enter your birth day : " );
+			try {
+				int inputDay = Integer.parseInt(sc.nextLine());
+				LocalDate.of(birthYear, birthMonth, inputDay);
+				birthDay = inputDay;
+				return inputDay;
+			} catch (NumberFormatException e) {
+				System.err.println("Please enter numbers only...");
+			} catch (DateTimeException e2) {
+				System.err.println("ErrorDay : " + e2.getMessage());
+			}
+		}
 	}
 	
 	public static void requestMonth() {
-		birthMonth = checkInput("Please enter your birth month : ", START_VALUE, MONTH_VALUE);
+		birthMonth = checkInput("Please enter your birth month : ", START_VALUE, MONTH_VALUE, "month");
 	}
 	
 	public static void requestYear() {
 		birthYear = checkInput("Please enter your birth year between " + 
-					START_YEAR + " and " + END_YEAR + " : ", START_YEAR, END_YEAR);
+					START_YEAR + " and " + END_YEAR + " : ", START_YEAR, END_YEAR, "year");
 	}
 	
 	public static void programStart() throws InterruptedException {
@@ -79,6 +91,7 @@ public class ExceptionHandling {
 		requestMonth();
 		requestDay();
 		System.out.println("\nThere are " + calculateTotalMonths() + " months you have lived.");
+		System.out.println("------------------------ \nEnjoy your day! \n--- Program Ended ---");
 	}
 
 }
