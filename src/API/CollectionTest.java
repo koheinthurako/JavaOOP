@@ -52,6 +52,8 @@ class Person implements Comparable<Person> {
 	@Override
 	public int compareTo(Person o) {
 //		ဒီနေရာမှာ အောက်က this keyword ကို ဒီ compareTo() ကိုလှမ်းခေါ်လိုက်တဲ့ Object အပေါ်မူတည်ပြီး o ကတော့ parameter ထဲက Object value
+//		ဒါပေမယ့် this အလုပ်လုပ်တဲ့ ပုံစံက java မှာ algorithm သူ့ဘာသာရေးပြီးသားဖြစ်တယ် Collections.sort() ဆိုတာနဲ့ ဒီ compareTo() method
+//		ကအလုပ်လုပ်သွားပြီ ကိုယ်ကတော့ integer တစ်လုံး return ပြန်အောင် ရေးပေးနိုင်ရင်ရပြီ အထဲကနှိုင်းယှဉ်တွက်ချက်တာတွေကတော့ သူ့ဘာသာအလုပ်လုပ်သွားတယ်
 //		return this.age-o.age; // integer တွေ sort
 		return this.name.compareTo(o.name); // string တွေ sort
 	}
@@ -80,7 +82,7 @@ public class CollectionTest {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
-
+//		ဒီနေရာမှာ Collection အကြောင်းစမယ်
 //		ပုံမှန်ဆို array က dataTypes တူတာတွေပဲ ထည့်လို့ရတယ်
 //		Collection တွေက dataTypes မတူတာတွေကို array အနေနဲ့ ထည့်လို့ရတယ် သို့သော် Object တွေကိုပဲစုပေးထားနိုင်တယ် primitive တွေမရ
 
@@ -94,12 +96,12 @@ public class CollectionTest {
 //		array ကိုသုံးမယ်ဆိုရင်တော့ အခန်းအရေအတွက်ကော ကြိုသတ်မှတ်ပေးရပြီး dataTypes တွေလည်းတူရတယ်
 
 //		သို့သော် Collection ကတော့ အဲ့ဒါတွေမလိုပါ Dynamic ဖြစ်တယ်
+		
 //		Collection ထဲမှာ objects တွေကိုပဲစုလို့ရတယ် primitive dataTypes ‌တွေမရပါ
-
 //		Collection ထဲမှာ List, Queue and Set ဆိုပြီးရှိတယ်
+		
 //		Java.util.List အကြောင်းစမယ်
-
-//		List က interface class ဖြစ်တယ် => constructor နဲ့ object ဆောက်လို့မရ
+//		List က interface class ဖြစ်တယ် => constructor နဲ့ object ဆောက်မရလို့ childClass တွေကနေ object ဆောက်လေ့ရှိတယ်
 
 //		1. ArrayList
 		List list = new ArrayList<>();
@@ -112,7 +114,7 @@ public class CollectionTest {
 
 		List list1 = new ArrayList<>();
 		list1.add("abc");
-//		ဒီနေရာမှာ စသတိထားပါ list1 ထဲကို အပေါ်က list ကိုထပ်ထည့်လိုက်တာမို့ list ရဲ့တန်ဖိုးတွေ set လိုက်ကြီးက array တစ်ခန်းအနေနဲ့ list1 ထဲဝင်သွားတယ်
+//		အောက်မှာ စသတိထားပါ list1 ထဲကို အပေါ်က list ကိုထပ်ထည့်လိုက်တာမို့ list ရဲ့တန်ဖိုးတွေ set လိုက်ကြီးက array တစ်ခန်းအနေနဲ့ list1 ထဲဝင်သွားတယ်
 //		list1 ထဲမှာ array နှစ်ခန်းပဲဖြစ်သွားတယ်
 		list1.add(list);
 		System.out.println("Arraylist.add() : " + list1);
@@ -128,7 +130,8 @@ public class CollectionTest {
 		List list4 = new ArrayList<>(list3);
 		list4.set(1, 2);
 //		set သည် data ကိုပြင်တာ
-		System.out.println("ArrayList.set() : " + list4);
+		System.out.println("ArrayList.set() list4 : " + list4);
+		System.out.println("list3 : " + list3);
 
 		List list5 = new ArrayList();
 		list5.add("abc");
@@ -174,7 +177,8 @@ public class CollectionTest {
 //		Program တစ်ခုရေးမယ် ဟိုးအပေါ်မှာ Person class ရှိတယ်အဲ့ထဲက condition တစ်ခုနဲ့ကိုက်ညီတဲ့လူတွေကိုဆွဲထုတ်ချင်တယ်
 //		လူက ဘယ်နှယောက်ပါမှန်းမသိလို့ Collection ကိုသုံးမယ်
 //		ဒီတစ်ခါ List collection ထဲကို အောက်က Object တွေစုထည့်ထားတယ်
-//		အဲ့ဒီ List ရဲ့ data type က Person data type
+//		အဲ့ဒီ List ရဲ့ data type က Person data type ပြောချင်တာက java ကရေးပြီးသား wrapper class တွေတင်မဟုတ်ဘူး
+//		userDefined Class ကို DataType အနေနဲ့ ယူသုံးပြီး အဲ့ class ထဲက method တွေကိုပါ ခေါ်လို့ရအောင်လုပ်ခြင်းဖြစ်တယ်
 		List<Person> persons = new ArrayList<>();
 		persons.add(new Person(1, "Thet", 20));
 		persons.add(new Person(2, "Zaw", 18));
@@ -184,10 +188,11 @@ public class CollectionTest {
 //		persons ထဲမှာကျတော့ object တွေ object တွေထဲမှာမှ data က 3 ခုစီပါနေတော့ sort က ဘာကိုထုတ်ပြရမှန်းမသိဘူး
 //		ဒါကြောင့် ကိုယ်ပိုင် user defined object တွေကို sorting စီမယ်ဆိုရင်
 //		ဟိုးအပေါ်က Person class ထိပ်ဆုံးမှာ Comparable interface class ကို implements လုပ်ပေးရတယ်
+//		အောက်ကအဆင့်မှာတင် sorting က အပေါ်ဆုံးက compareTo() method ကိုသွားပြီး auto အလုပ်လုပ်တယ်
 		Collections.sort(persons);
 
 //		ဒီ Person data type နေရာမှာ ပုံမှန်ဆို default Object ဆိုပေမယ့် လက်ခံမယ့် data type က
-//		ဟိုးအပေါ်က Person class ဖြစ်နေလို့ Person data type တစ်ခါတည်းထည့်လိုက်တယ် 
+//		ဟိုးအပေါ်က Person class ဖြစ်နေလို့ Person data type တစ်ခါတည်းထည့်လိုက်တယ် အောက်ကဟာက looping သပ်သပ်ပဲ 
 		for (Person person : persons) {
 //			if(person.getAge() < 20)
 //				System.out.println(person);

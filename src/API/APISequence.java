@@ -13,6 +13,7 @@ public class APISequence {
 //	7. ArraysClassTest
 //	8. Exception Handling
 //	9. CollectionTest
+//	10. StreamTest
 	
 	
 }
