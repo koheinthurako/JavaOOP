@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -99,6 +100,24 @@ public class StreamTest {
 //		ဒါဆိုရင်တော့ map ကို သုံးပြီး integer collection တစ်ခုကို calculation လုပ်ပြီး character return ပြန်လာတာတွေကို
 //		Collectors.toList() ကိုထပ်သုံးပြီး တန်ဖိုးတွေကိုစုပြီးမှ print ပြန်ထုတ်တယ် value တွေက လုံးဝကွဲထွက်ပြီးထွက်လာပေမယ် 
 //		မူရင်း list2 ထဲကတန်ဖိုးတွေတော့ လုံးဝမပြောင်းလဲပါ collector တစ်ခုကိုထပ်သုံးလိုက်လို့ return တန်ဖိုးတွေကသာ collection အသစ်တစ်ခုအနေနဲ့ပွားသွားတယ်
+		
+		
+		
+//		Filter()
+//		Predicate<Integer> predicate = new Predicate<Integer>() {
+//			@Override
+//			public boolean test(Integer t) {
+//				return t < 3;
+//			}
+//		};
+//		
+//		System.out.println("Prediate test() method for filter : " + predicate.test(1));
+		
+		Predicate<Integer> predicate = (t -> t < 3);
+		System.out.println("Predicate test() method for filter using lambda : " + predicate.test(1));
+//		ဒါဆို condition true ဖြစ်တဲ့ list2 ထဲက 3 ထက်ငယ်တဲ့တန်ဖိုးတွေကိုပဲ Collectors.toList() နဲ့ List တစ်ခုထဲသိမ်းပြီးပြန်ထုတ်တယ် 
+		List<Integer> filterList = list2.stream().filter(t -> t < 3).collect(Collectors.toList());
+		System.out.println("filter method by collecting return true value : " + filterList);
 
 	}
 
