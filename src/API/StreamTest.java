@@ -138,6 +138,30 @@ public class StreamTest {
 		System.out.println("/nfilter method colleced in array using toArray() : " + Arrays.toString(filterArr));
 		
 		
+		
+		// Method arguments or varArgs အကြောင်းစမယ်
+		method1(1, 2, 3);
+//		အောက်က method1 parameter ထဲမှာ အကုန် integer တွေပဲဆိုရင် တစ်လုံးချင်းမရေးတော့ပဲ
+//		method1(int...a) ဆိုပြီးရေးလိုက်တယ် အဲ့တာကို varArgs လို့ခေါ်တယ် method1 ထဲကိုထည့်လိုက်သမျှ parameter ထဲက values တွေအကုန်
+//		ယူလိုက်ခြင်းဖြစ်တယ် သို့သော် မတူတဲ့ dataTypes တွေပါလာရင်တော့ သီးခြားသတ်မှတ်ပေးရမယ် ဥပမာ - method2 ကိုကြည့်
+		method2("Hello", 4, 5, 6);
+//		varArgs ကို သုံးမယ်ဆိုရင် parameter ရဲ့အနောက်ဆုံးမှာ ရေးမှရမယ် ဘာလို့ဆို သူက အနောက်ဆုံးထိ parameter ထဲကတန်ဖိုးတွေကိုယူတာမို့လို့
+		method3("hello", 'A', 7, 8, 9);
+		
+	}
+	
+	public static void method1(int...a) {
+//		ဒီနေရာမှာ အပေါ်က parameter ထဲက တန်ဖိုးတွေအကုန်လုံးကို varArgs နဲ့ယူလိုက်တော့ a က array ဖြစ်သွားလို့ Arrays.toString() နဲ့ပြန်ထုတ် 
+		System.out.println("using varArgs(int) : " + Arrays.toString(a));
+	}
+	
+	public static void method2(String msg, int...a) {
+		System.out.println("using varArgs(String, int) : " + Arrays.toString(a));
+	}
+	
+	public static void method3(String msg, char c, int...a) {
+		System.out.println("using varArgs(String, char, int) : " + Arrays.toString(a));
 	}
 
 }
+
