@@ -14,6 +14,7 @@ public class APISequence {
 //	8. Exception Handling
 //	9. CollectionTest
 //	10. StreamTest
+//	11. MoreAboutCollection
 	
 	
 }
