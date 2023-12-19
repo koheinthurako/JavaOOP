@@ -30,7 +30,7 @@ public class StreamTest {
 //		stream2.forEach(x -> System.out.println(x));
 
 //		String using collection
-//		collection ဆိုရင်တော့ အပေါ်က array လို stream ထပ်ဆောက်စရာမလိုဘူး list ကိုအခြေခံပြီး stream ထပ်သုံးရုံပဲ
+//		collection ဆိုရင်တော့ အပေါ်က array လို stream ထပ်ဆောက်စရာမလိုဘူး list ကိုအခြေခံပြီး stream method ကိုသုံးရုံပဲ
 //		List<Character> list = Arrays.asList('d', 'e', 'f');
 //		list.stream().forEach(x -> System.out.println(x));
 		
@@ -71,7 +71,7 @@ public class StreamTest {
 //		map() ကတော့ ပေးလိုက်တဲ့တန်ဖိုးတွေကို calculation လုပ်ပြီးမှ stream() အနေနဲ့ return ပြန်ထုတ်ပေးတယ်
 //		list2.stream().map() ထဲက map() parameter ထဲမှာ Function ဆိုတဲ့ class ကိုသုံးထားတယ်
 //		အဲ့တော့ Function အလုပ်လုပ်ပုံကိုအောက်မှာကြည့်မယ်
-//		Consumer က java.util.function ထဲမှာရှိတဲ့ interface တစ်ခု သူ့ထဲမှာ type parameter 2 လုံးပါတယ်
+//		Function က java.util.function ထဲမှာရှိတဲ့ interface တစ်ခု သူ့ထဲမှာ type parameter 2 လုံးပါတယ်
 //		Function ထဲမှာ method ကလည်းတစ်ခုပဲပါတယ် apply() ဆိုတဲ့ method
 //		type parameter အရှေ့ဆုံးတစ်လုံးက apply() parameter ထဲကို calculation အတွက်ဝင်သွားပြီး နောက်ဆုံး type parameter ကတော့
 //		return type အနေနဲ့ အလုပ်လုပ်တယ်
@@ -103,7 +103,7 @@ public class StreamTest {
 		
 		
 		
-//		Filter()
+//		Filter() အကြောင်းစမယ်
 //		Predicate<Integer> predicate = new Predicate<Integer>() {
 //			@Override
 //			public boolean test(Integer t) {
@@ -118,7 +118,26 @@ public class StreamTest {
 //		ဒါဆို condition true ဖြစ်တဲ့ list2 ထဲက 3 ထက်ငယ်တဲ့တန်ဖိုးတွေကိုပဲ Collectors.toList() နဲ့ List တစ်ခုထဲသိမ်းပြီးပြန်ထုတ်တယ် 
 		List<Integer> filterList = list2.stream().filter(t -> t < 3).collect(Collectors.toList());
 		System.out.println("filter method by collecting return true value : " + filterList);
-
+		
+		
+		
+//		Method Reference
+//		အတိုချုပ် forEach ကို method reference ရေးနည်း "::" semiColumn နှစ်ခုကို ခေါ်တယ်
+//		နောက်ပိုင်း collection ထဲက တန်ဖိုးတွေကို output ထုတ်မယ်ဆိုရင် အောက်က method reference ပုံစံအတိုင်း ပဲရေးမယ်
+		list2.stream().forEach(System.out::print);
+		
+		
+		
+//		Constructor Reference
+//		အပေါ်က filter ကို collection ကို မသုံးပဲ array ထဲကိုထည့်မယ်ဆိုရင် toArray method() ကိုသုံးတယ် သို့သော် ဘယ်လို data အမျိုးအစားမှန်းသိအောင်
+//		object ဆောက်ပေးဖို့လိုတယ် integer တွေထည့်မှာမို့ Integer Wrapper Class ကိုသုံးလိုက်ပြီး new keyword ထည့်ပေးရတယ်
+//		toArray() method ထဲမှာက primitive data type တွေကိုလက်မခံတာကြောင့် wrapper class တွေကိုသုံးပေးရတယ်
+//		အဲ့တာမှ Integer class ထဲက constructor ကိုသွားခေါ်ပြီး method reference နည်းလမ်းနဲ့ new keyword နဲ့ပေါင်းပြီး array တစ်ခုကိုတည်ဆောက်
+//		constructor ကနေတစ်ဆင့် ခေါ်ယူသုံးရလို့ constructor reference လို့ခေါ်တယ်
+		Integer [] filterArr = list2.stream().filter(t -> t%2==0).toArray(Integer[]::new);
+		System.out.println("/nfilter method colleced in array using toArray() : " + Arrays.toString(filterArr));
+		
+		
 	}
 
 }
