@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Assignments"/>
+	<classpathentry kind="src" path="IQGame"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

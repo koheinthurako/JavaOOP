@@ -8,7 +8,7 @@ public class Alphabatic_Game implements Game_Control {
 	
 	public Alphabatic_Game() {
 		start = Constant.random.nextInt(Constant.Initial_Number_Range);
-		skip = Constant.random.nextInt(Constant.SKIP_COUNT+1);
+		skip = Constant.random.nextInt(Constant.SKIP_COUNT+2);
 	}
 
 	@Override
@@ -26,6 +26,7 @@ public class Alphabatic_Game implements Game_Control {
 	@Override
 	public void displayQuestion() {
 		System.out.println(generateQuestion() + Constant.BLANK);
+		
 	}
 
 	@Override
