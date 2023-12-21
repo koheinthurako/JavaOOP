@@ -1,21 +1,20 @@
 package IQGame;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
-
-import OOPProject.Constant;
+import java.util.Map.Entry;
 
 public class AlphabeticGame {
 
 	int start;
 	int end;
+	String question;
+	char correctAnswer;
 	Random r = new Random();
-	Set<Character> dataBox = new LinkedHashSet<Character>();
-//	Set<Character> multipleAnswerBox = new LinkedHashSet<Character>();
 	Map<Character, Character> multipleBox = new LinkedHashMap<Character, Character>();
 	Character[] answerBox;
 	
@@ -24,35 +23,35 @@ public class AlphabeticGame {
 		end = r.nextInt(10)+2;
 	}
 	
-	public void generateQuestions() {
-//		System.out.println("Random start number : " + start);
-//		System.out.println("Random end number : " + end);
-		while(dataBox.size()<5) {
+	public char getCorrectAnswer() {
+		return correctAnswer;
+	}
+
+
+	public String generateQuestions() {
+		System.out.println("Start number : " + start);
+		System.out.println("Skip number : " + end);
+		question = (char) (start + 'a') + ConstDatas.SPACING;
+		for(int i = 0; i < 4; i++) {
+			start += end;
 			char alphabet = (char) (start + 'a');
 			while(alphabet > 'z') {
 				alphabet -= 26;
 			}
-			dataBox.add(alphabet);
-			start += end;
+			if(i<3) question += alphabet + ConstDatas.SPACING;
+			else correctAnswer = alphabet;
 		}
-		showQuestions();
+		return question;
 	}
 	
 	public void showQuestions() {
-		String question = "";
-		answerBox = dataBox.toArray(new Character[0]);
-		for(int i = 0; i < answerBox.length - 1; i++) {
-			question += (answerBox[i] + "   ");
-		}
-		System.out.println(question + "(-------)");
-		System.out.println("DataBox : " + dataBox);
+		System.out.println(generateQuestions() + "(-------)");
 		showAnswer();
 		requestUserInput();
 	}
 	
-	public void showAnswer() {
+	public void generateAnswer() {
 		int num = 0;
-		char correctAnswer = answerBox[answerBox.length-1];
 		System.out.println("Correct Answer : " + correctAnswer);
 		int cor_position = r.nextInt(4);
 		do {
@@ -67,6 +66,17 @@ public class AlphabeticGame {
 		System.out.println("multipleAnswerBox : " + multipleBox);
 	}
 	
+	public Map<Character, Character> showAnswer() {
+		generateAnswer();
+		Set<Entry<Character, Character>> set = multipleBox.entrySet();
+		Iterator<Entry<Character, Character>> it = set.iterator();
+		while(it.hasNext()) {
+			Entry<Character, Character> entry = it.next();
+			System.out.print(entry.getKey() + ")" + entry.getValue()+ConstDatas.SPACING);
+		}
+		return multipleBox;
+	}
+	
 	public void requestUserInput() {
 		System.out.print("\nGuess answer : ");
 		Scanner sc = new Scanner(System.in);
@@ -74,18 +84,26 @@ public class AlphabeticGame {
 			try {
 				String input = sc.nextLine();
 				checkInput(input);
-				sc.close();
 				break;
 			} catch (StringIndexOutOfBoundsException e) {
-				System.out.println("Guess answer : ");
+				System.out.print("Guess answer : ");
 			}
 		}
-		
+		sc.close();
 	}
 	
 	public void checkInput(String input) {
-		if(input.charAt(0) == answerBox[answerBox.length - 1]) System.out.println("True");
-		else System.out.println("False");
+		Scanner sc = new Scanner(System.in);
+		Set<Entry<Character, Character>> set = multipleBox.entrySet();
+		Iterator<Entry<Character, Character>> it = set.iterator();
+		while(it.hasNext()) {
+			Entry<Character, Character> entry = it.next();
+			if(input.charAt(0)==entry.getKey()) {
+				if(correctAnswer==entry.getValue()) Player.winCount++;
+			}
+		}
+		System.out.println("Winner count : " + Player.winCount);
+		sc.close();
 	}
 
 }

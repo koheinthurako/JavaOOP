@@ -1,7 +1,8 @@
 package IQGame;
 
-public interface Constant {
+public interface ConstDatas {
 	
 	char[] ANSWERS = {'a', 'b', 'c', 'd'};
+	String SPACING = "   ";
 
 }

@@ -28,7 +28,7 @@ public class IQ_Game {
 		Iterator<Entry<Character, Integer>> it = set.iterator();
 		while(it.hasNext()) {
 			Entry<Character, Integer> entry = it.next();
-			System.out.println(entry.getKey() + ")" + entry.getValue()+Constant.SPACING);
+			System.out.print(entry.getKey() + ")" + entry.getValue()+Constant.SPACING);
 		}
 		
 //		ans.generate_Multiple_Choice(a_game.getCor_ans());
