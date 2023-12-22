@@ -1,22 +1,15 @@
 package IQGame;
 
-//import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-//import java.util.Set;
-//import java.util.Map.Entry;
+public class FibonacciGame implements GameControl {
 
-public class FibonacciGame implements GameControl{
-	
 	int start;
 	int end;
 	String question;
 	int correctAnswer;
-	Map<Character, Integer> multipleBox = new LinkedHashMap<Character, Integer>();
-	
+
 	public FibonacciGame() {
 		start = ConstDatas.RANDOM.nextInt(ConstDatas.INITIAL_NUMBER_RANGE) + 1;
-		end = ConstDatas.RANDOM.nextInt(ConstDatas.SKIP_COUNT)+2;
+		end = ConstDatas.RANDOM.nextInt(ConstDatas.SKIP_COUNT) + 2;
 	}
 
 	@Override
@@ -24,18 +17,19 @@ public class FibonacciGame implements GameControl{
 		question = start + ConstDatas.SPACING;
 		int buffer = start + end;
 		int previous = 0;
-		for(int i = 0; i < 4; i++) {
-			if(i<3) question += buffer + ConstDatas.SPACING;
+		for (int i = 0; i < 4; i++) {
+			if (i < 3)
+				question += buffer + ConstDatas.SPACING;
 //			else correctAnswer = buffer;
-			else Answer.CORRECT_ANSWER = buffer;
+			else
+				Answer.CORRECT_ANSWER = buffer;
 			previous = buffer;
 			buffer += start;
 			start = previous;
 		}
 		return question;
 	}
-	
-	
+
 	@Override
 	public void showQuestions() {
 		System.out.println(generateQuestions() + "(-------)");
@@ -114,7 +108,5 @@ public class FibonacciGame implements GameControl{
 		Answer.multipleBox.clear();
 		return "--------------------------------------------";
 	}
-	
-	
 
 }

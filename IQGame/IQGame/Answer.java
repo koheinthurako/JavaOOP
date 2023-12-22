@@ -39,38 +39,4 @@ public class Answer {
 		return multipleBox;
 	}
 
-//	public void requestUserInput() {
-//		System.out.print("Enter your answer : ");
-//		while(true) {
-//			try {
-//				String input = ConstDatas.sc.nextLine();
-//				checkInput(input);
-//				break;
-//			} catch (StringIndexOutOfBoundsException e) {
-//				System.out.print("Enter your answer : ");
-//			}
-//		}
-//	}
-//	
-//	public void checkInput(String input) {
-//		Set<Entry<Character, Integer>> set = multipleBox.entrySet();
-//		Iterator<Entry<Character, Integer>> it = set.iterator();
-//		boolean invalidInput = true;
-//		while(it.hasNext()) {
-//			Entry<Character, Integer> entry = it.next();
-//			if(input.charAt(0)==entry.getKey()) {
-//				if(CORRECT_ANSWER==entry.getValue()) Player.winCount++;
-//				invalidInput = false;
-//				return;
-//			} else {
-//				invalidInput = true;
-//			}
-//		}
-//		
-//		if(invalidInput) {
-//			requestUserInput();
-//		}
-//		
-//	}
-
 }

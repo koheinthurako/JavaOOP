@@ -1,18 +1,11 @@
 package IQGame;
 
-import java.util.HashMap;
-//import java.util.Iterator;
-import java.util.Map;
-//import java.util.Set;
-//import java.util.Map.Entry;
-
 public class AgeGame implements GameControl {
 
 	int age;
 	int dif_age;
 	int correctAnswer;
 	String question;
-	Map<Character, Integer> multipleBox = new HashMap<>();
 
 	public AgeGame() {
 		age = ConstDatas.RANDOM.nextInt(100);
@@ -20,7 +13,7 @@ public class AgeGame implements GameControl {
 			dif_age = ConstDatas.RANDOM.nextInt(ConstDatas.SKIP_COUNT) + 2;
 		} while (dif_age % 2 != 0);
 //		this.correctAnswer = age + (dif_age/2);
-		Answer.CORRECT_ANSWER = age + (dif_age/2);
+		Answer.CORRECT_ANSWER = age + (dif_age / 2);
 	}
 
 	@Override
