@@ -33,9 +33,7 @@ public class FibonacciGame implements GameControl {
 	@Override
 	public void showQuestions() {
 		System.out.println(generateQuestions() + "(-------)");
-//		showAnswer();
 		Answer.showAnswer();
-//		requestUserInput();
 		Player.requestUserInput();
 		System.out.println(nextProblem());
 	}

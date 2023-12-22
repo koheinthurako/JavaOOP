@@ -10,10 +10,11 @@ public class IQGameController {
 		GameControl aGame = new AlphabeticGame();
 		GameControl ageGame = new AgeGame();
 		GameControl fiboGame = new FibonacciGame();
-
-		List<GameControl> gameCollections = Arrays.asList(aGame, ageGame, fiboGame);
+		GameControl skipNumGame = new SkipNumberGame();
+		
+		List<GameControl> gameCollections = Arrays.asList(aGame, ageGame, fiboGame, skipNumGame);
 		gameCollections.forEach(game -> game.showQuestions());
-
+		
 		System.out.println("Win times : " + Player.winCount);
 
 	}
