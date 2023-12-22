@@ -47,7 +47,7 @@ public class AlphabeticGame implements GameControl{
 		System.out.println(nextProblem());
 	}
 	
-	@Override
+//	@Override
 	public void generateAnswer() {
 		int num = 0;
 		int cor_position = ConstDatas.RANDOM.nextInt(4);
@@ -74,10 +74,9 @@ public class AlphabeticGame implements GameControl{
 		return multipleBox;
 	}
 	
-	@Override
+//	@Override
 	public void requestUserInput() {
 		System.out.print("Enter your answer : ");
-//		Scanner sc = new Scanner(System.in);
 		while(true) {
 			try {
 				String input = ConstDatas.sc.nextLine();
@@ -87,7 +86,6 @@ public class AlphabeticGame implements GameControl{
 				System.out.print("Enter your answer : ");
 			}
 		}
-//		sc.close();
 	}
 	
 	public void checkInput(String input) {

@@ -1,14 +1,19 @@
 package IQGame;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class IQGameController {
 	
 	public static void main(String[] args) {
 
-		AlphabeticGame aGame = new AlphabeticGame();
-		AgeGame ageGame = new AgeGame();
+		GameControl aGame = new AlphabeticGame();
+		GameControl ageGame = new AgeGame();
+		GameControl fiboGame = new FibonacciGame();
 		
-		aGame.showQuestions();
-		ageGame.showQuestions();
+		List<GameControl> gameCollections = Arrays.asList(aGame, ageGame, fiboGame);
+		gameCollections.forEach(game -> game.showQuestions());
+		
 		System.out.println("Win times : " + Player.winCount);
 		
 	}
