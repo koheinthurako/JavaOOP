@@ -12,13 +12,12 @@ public class AgeGame implements GameControl {
 		do {
 			dif_age = ConstDatas.RANDOM.nextInt(ConstDatas.SKIP_COUNT) + 2;
 		} while (dif_age % 2 != 0);
-//		this.correctAnswer = age + (dif_age/2);
 		Answer.CORRECT_ANSWER = age + (dif_age / 2);
 	}
 
 	@Override
 	public String generateQuestions() {
-		question = "I am currently " + age + " years old, and my age is exactly half of my brother's age when he was "
+		question = "II). I am currently " + age + " years old, and my age is exactly half of my brother's age when he was "
 				+ dif_age + " years old. How old is my brother?";
 		return question;
 	}
@@ -26,9 +25,7 @@ public class AgeGame implements GameControl {
 	@Override
 	public void showQuestions() {
 		System.out.println(generateQuestions());
-//		showAnswer();
 		Answer.showAnswer();
-//		requestUserInput();
 		Player.requestUserInput();
 		System.out.println(nextProblem());
 	}
@@ -99,7 +96,7 @@ public class AgeGame implements GameControl {
 	@Override
 	public String nextProblem() {
 		Answer.multipleBox.clear();
-		return "--------------------------------------------";
+		return "____________________________________________\n";
 	}
 
 }

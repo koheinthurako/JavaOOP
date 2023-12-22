@@ -38,5 +38,15 @@ public class Answer {
 		System.out.println("");
 		return multipleBox;
 	}
-
+	
+	public static void loadingAnimation() throws InterruptedException {
+		System.out.println("____________________________________________\n");
+		String[] stars = {"* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "* ", "*"};
+            for (String star : stars) {
+            	Thread.sleep(200);
+            	System.out.print(star);
+            }
+            System.out.println("");
+	}
+	
 }

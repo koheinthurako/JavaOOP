@@ -27,16 +27,15 @@ public class CalculationGame implements GameControl {
 
 	@Override
 	public void showQuestions() {
-		System.out.println("(-------)" + generateQuestions());
+		System.out.println("V). (-------)" + generateQuestions());
 		Answer.showAnswer();
 		Player.requestUserInput();
-		System.out.println(nextProblem());
+		Answer.multipleBox.clear();
 	}
 
 	@Override
 	public String nextProblem() {
-		Answer.multipleBox.clear();
-		return "--------------------------------------------";
+		return null;
 	}
 
 }

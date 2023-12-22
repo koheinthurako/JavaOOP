@@ -11,7 +11,7 @@ public class SkipNumberGame implements GameControl{
 
 	@Override
 	public String generateQuestions() {
-		question = start + ConstDatas.SPACING;
+		question = "IV). " + (start + ConstDatas.SPACING);
 		for (int i = 0; i < 4; i++) {
 			start++;
 			if(i<3) {
@@ -36,7 +36,7 @@ public class SkipNumberGame implements GameControl{
 	@Override
 	public String nextProblem() {
 		Answer.multipleBox.clear();
-		return "--------------------------------------------";
+		return "____________________________________________\n";
 	}
 	
 	

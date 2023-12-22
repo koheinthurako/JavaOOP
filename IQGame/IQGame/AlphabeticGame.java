@@ -26,7 +26,7 @@ public class AlphabeticGame implements GameControl{
 
 	@Override
 	public String generateQuestions() {
-		question = (char) (start + 'a') + ConstDatas.SPACING;
+		question = "I). " + ((char) (start + 'a') + ConstDatas.SPACING);
 		for(int i = 0; i < 4; i++) {
 			start += end;
 			char alphabet = (char) (start + 'a');
@@ -110,7 +110,7 @@ public class AlphabeticGame implements GameControl{
 	
 	@Override
 	public String nextProblem() {
-		return "--------------------------------------------";
+		return "____________________________________________\n";
 	}
 
 }

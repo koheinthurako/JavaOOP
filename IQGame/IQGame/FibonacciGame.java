@@ -14,7 +14,7 @@ public class FibonacciGame implements GameControl {
 
 	@Override
 	public String generateQuestions() {
-		question = start + ConstDatas.SPACING;
+		question = "III). " + (start + ConstDatas.SPACING);
 		int buffer = start + end;
 		int previous = 0;
 		for (int i = 0; i < 4; i++) {
@@ -40,7 +40,7 @@ public class FibonacciGame implements GameControl {
 	@Override
 	public String nextProblem() {
 		Answer.multipleBox.clear();
-		return "--------------------------------------------";
+		return "____________________________________________\n";
 	}
 
 }
