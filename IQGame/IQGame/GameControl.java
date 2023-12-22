@@ -1,12 +1,13 @@
 package IQGame;
 
-public class GameControl {
+public interface GameControl {
 	
-	public static void main(String[] args) {
-
-		AlphabeticGame aGame = new AlphabeticGame();
-		aGame.showQuestions();
-		
-    }
+	public String generateQuestions();
+	public void showQuestions();
+	public void generateAnswer();
+//	public Map<Character, Character> showAnswer();
+	public void requestUserInput();
+	public String nextProblem();
+	
 		
 }
