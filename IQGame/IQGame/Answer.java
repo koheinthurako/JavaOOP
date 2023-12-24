@@ -27,7 +27,7 @@ public class Answer {
 		} while (multipleBox.size() != 4);
 	}
 
-	public static Map<Character, Integer> showAnswer() {
+	public static void showAnswer() {
 		generateAnswer();
 		Set<Entry<Character, Integer>> set = multipleBox.entrySet();
 		Iterator<Entry<Character, Integer>> it = set.iterator();
@@ -36,7 +36,6 @@ public class Answer {
 			System.out.print(entry.getKey() + ")" + entry.getValue() + ConstDatas.SPACING);
 		}
 		System.out.println("");
-		return multipleBox;
 	}
 	
 	public static void loadingAnimation() throws InterruptedException {

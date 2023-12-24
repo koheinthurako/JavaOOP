@@ -32,7 +32,7 @@ public class IQGameController {
 				}
 				
 			} catch (NoSuchElementException e) {
-				System.out.println("Invalid values...");
+				System.err.println("Invalid values...");
 			}
 		}
 
