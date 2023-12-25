@@ -12,7 +12,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class FileHandling {
+public class FileHandlingWithLocalDateTime {
 
 	public static void main(String[] args) {
 
