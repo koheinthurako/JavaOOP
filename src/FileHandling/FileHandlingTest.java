@@ -27,20 +27,40 @@ public class FileHandlingTest {
 
 //		1. Path - absolute path, relative path
 //		absolute path က root directory ကနေစယူပြီး relative path က current path ကနေစယူ
-		try {
-			Path path = Paths.get("D:\\fileHandlingTest.txt");
-//			createFile - file တစ်ခုဖန်တီးခြင်း
-			Files.createFile(path);
-//			path.toFile() = path မှ file ကိုပြောင်းပြီး getDesktop() နဲ့လှမ်းဖွင့်
-//			တစ်ခု create လုပ်ပြီးသားရှိပြီးသားကို ထပ်လုပ်ရင် FileAlreadyExistsException error တက်
-			Desktop.getDesktop().open(path.toFile());
-//			IO Exception မရေးခင်မှာမှ catch ထဲမှာ fileAlready...exception ကို အရင်ဖမ်းပေးရမယ် မရေးရင် error ပြ
-//			ဘာလို့ဆို IO စစ်ပြီးမှ file ကိုသွားစစ်လို့မရဘူး file ထပ်မထပ်စစ်ပြီးမှ IO အဆင်ပြေမပြေစစ်ပေးရတာမို့လို့
-		} catch (FileAlreadyExistsException e2) {
-			System.err.println("File already exists!");
-//			IOException ဆိုတာ create ပေးလိုက်တဲ့/ အလုပ်လုပ်လိုက်တဲ့ path လမ်းကြောင်းတစ်ခုက input/output တွေအဆင်ပြေမပြေကိုပဲဖမ်းပေးတယ်
-		} catch (IOException e) {
-			e.printStackTrace();
+//		try {
+//			Path path = Paths.get("D:\\fileHandlingTest.txt");
+////			createFile - file တစ်ခုဖန်တီးခြင်း
+//			Files.createFile(path);
+////			path.toFile() = path မှ file ကိုပြောင်းပြီး getDesktop() နဲ့လှမ်းဖွင့်
+////			တစ်ခု create လုပ်ပြီးသားရှိပြီးသားကို ထပ်လုပ်ရင် FileAlreadyExistsException error တက်
+//			Desktop.getDesktop().open(path.toFile());
+////			IO Exception မရေးခင်မှာမှ catch ထဲမှာ fileAlready...exception ကို အရင်ဖမ်းပေးရမယ် မရေးရင် error ပြ
+////			ဘာလို့ဆို IO စစ်ပြီးမှ file ကိုသွားစစ်လို့မရဘူး file ထပ်မထပ်စစ်ပြီးမှ IO အဆင်ပြေမပြေစစ်ပေးရတာမို့လို့
+//		} catch (FileAlreadyExistsException e2) {
+//			System.err.println("File already exists!");
+////			IOException ဆိုတာ create ပေးလိုက်တဲ့/ အလုပ်လုပ်လိုက်တဲ့ path လမ်းကြောင်းတစ်ခုက input/output တွေအဆင်ပြေမပြေကိုပဲဖမ်းပေးတယ်
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		
+		
+//		ရှိပြီးသား file တစ်ခုကိုနောက်တစ်ခါထပ် create ရင် auto rename လုပ်ပေးတဲ့ program တစ်ခုရေးမယ်
+		int no = 0;
+		String fileName = "aTest";
+		String fileType = ".txt";
+		while(true) {
+			Path path = Paths.get("D:\\" + fileName + fileType);
+			try {
+				Files.createFile(path);
+				Desktop.getDesktop().open(path.toFile());
+//				break မပါရင် file အများကြီးထွက်လာပြီး စက်ဟမ်းသွားနိုင်တယ် 
+				break;
+			} catch (FileAlreadyExistsException e) {
+				no++;
+				fileName += " (" + no + ")";
+			} catch(IOException e2) {
+				e2.printStackTrace();
+			}
 		}
 
 	}
