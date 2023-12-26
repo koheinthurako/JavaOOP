@@ -77,7 +77,8 @@ public class FileHandlingTest {
 		
 		
 //		file တစ်ခုဖန်တီးပြီး အဲ့ထဲကို စာတစ်ခါတည်းထည့်ရိုက်မယ် program တစ်ခုရေးမယ်
-		Path path = Paths.get("D:\\abcd.txt");
+		
+//		Path path = Paths.get("D:\\abcd.txt");
 //		String data = "";
 //		String line = "";
 //		for(int i = 0; i < 20; i++) {
@@ -122,23 +123,24 @@ public class FileHandlingTest {
 //		COPY_ATTRIBUTES ဆိုရင်တော့ file ရှိပြီးသားဖြစ်နေရင် ရှိပြီးသားဆိုတဲ့ message မျိုးကိုပြချင်ရင်သုံးနိုင်တယ်
 //		ATOMIC_MOVE ကတော့အရမ်းများတဲ့ data တွေကို အလုပ်လုပ်နေတုန်း စက်တစ်ခုခုဟမ်းသွားရင် undo လုပ်ပြီးမူရင်းအတိုင်း auto ပြန်ထားချင်ရင် သုံးတယ်
 //		abcd.txt ထဲက data တွေကို နောက် text file တစ်ခု auto ပွားပြီး abcd.txt ထဲက data တွေထပ်ထည့်ချင်တယ်ဆိုရင်
-		Path source = Paths.get("D:\\abcd.txt");
-		Path target = Paths.get("D:\\ef.txt");
-		Path target2 = Paths.get("D:\\gh.txt");
-		try {
-//			copy မယ်ဆိုရင် copy(source, target, openOption)
-//			Files.copy(source, target, StandardCopyOption.COPY_ATTRIBUTES);
-			
-			
-//			move မယ်ဆိုရင် move(source, target, openOption(ATOMIC_MOVE)) ကိုသုံးလိုက်တာနဲ့
-//			target နေရာက file အသစ်တစ်ခုကိုအရင်ဖန်တီးလိုက်ပြီး အဲ့ထဲကို source နေရာက data တွေကို copy မဟုတ်ပဲ တစ်ခါတည်း move လိုက်လို့
-//			source နေရာက file က ပျက်သွားပြီး source ထဲက data တွေက target နေရာက file အသစ်ထဲကိုပဲရောက်သွားမယ်
-			Files.move(target2, target, StandardCopyOption.ATOMIC_MOVE);
-			System.out.println("moved");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		Path source = Paths.get("D:\\abcd.txt");
+//		Path target = Paths.get("D:\\ef.txt");
+//		Path target2 = Paths.get("D:\\gh.txt");
+//		try {
+////			copy မယ်ဆိုရင် copy(source, target, openOption)
+////			Files.copy(source, target, StandardCopyOption.COPY_ATTRIBUTES);
+//			
+////			move မယ်ဆိုရင် move(source, target, openOption(ATOMIC_MOVE)) ကိုသုံးလိုက်တာနဲ့
+////			target နေရာက file အသစ်တစ်ခုကိုအရင်ဖန်တီးလိုက်ပြီး အဲ့ထဲကို source နေရာက data တွေကို copy မဟုတ်ပဲ တစ်ခါတည်း move လိုက်လို့
+////			source နေရာက file က ပျက်သွားပြီး source ထဲက data တွေက target နေရာက file အသစ်ထဲကိုပဲရောက်သွားမယ်
+//			Files.move(target2, target, StandardCopyOption.ATOMIC_MOVE);
+//			System.out.println("moved");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
+		Path source = Paths.get("D:\\");
+		System.out.println(Files.isDirectory(source));
 		
 	}
 
