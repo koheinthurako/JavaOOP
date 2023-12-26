@@ -2,6 +2,7 @@ package FileHandling;
 
 import java.awt.Desktop;
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileStore;
@@ -11,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
@@ -104,16 +106,38 @@ public class FileHandlingTest {
 		
 //		ဖန်တီးထားတဲ့ files ထဲက data တွေကို console မှာထုတ်ပြီးဖတ်ချင်တယ်ဆိုရင်
 //		Files.readAllLines() ဆိုတဲ့ method ကိုသုံးတယ် return ပြန်လာတာက String DataType List collection တစ်ခု ပြန်လာမယ်
+//		try {
+////			ပြန်လာတဲ့ return ကို String Collection ထဲထည့်လိုက်ပြီးတော့ forEach နဲ့ ထုတ်ပြမယ်
+//			List<String> texts = Files.readAllLines(path);
+//			texts.stream().forEach(System.out::println);
+//		} catch (NoSuchFileException e) {
+//			System.err.println("There is no file!");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+
+		
+//		File copy ဆို openOption ENUM ထဲမှာ သုံးမျိုးပဲရှိတယ် REPLACE_EXISTING, COPY_ATTRIBUTES, ATOMIC_MOVE
+//		REPLACE_EXISTING ကတော့ target ထဲမှာ file ရှိပြီးသားဆို အဟောင်းကိုဖျက်ပြီး အသစ်ကို update ပြန်လုပ်တယ်
+//		COPY_ATTRIBUTES ဆိုရင်တော့ file ရှိပြီးသားဖြစ်နေရင် ရှိပြီးသားဆိုတဲ့ message မျိုးကိုပြချင်ရင်သုံးနိုင်တယ်
+//		ATOMIC_MOVE ကတော့အရမ်းများတဲ့ data တွေကို အလုပ်လုပ်နေတုန်း စက်တစ်ခုခုဟမ်းသွားရင် undo လုပ်ပြီးမူရင်းအတိုင်း auto ပြန်ထားချင်ရင် သုံးတယ်
+//		abcd.txt ထဲက data တွေကို နောက် text file တစ်ခု auto ပွားပြီး abcd.txt ထဲက data တွေထပ်ထည့်ချင်တယ်ဆိုရင်
+		Path source = Paths.get("D:\\abcd.txt");
+		Path target = Paths.get("D:\\ef.txt");
+		Path target2 = Paths.get("D:\\gh.txt");
 		try {
-//			ပြန်လာတဲ့ return ကို String Collection ထဲထည့်လိုက်ပြီးတော့ forEach နဲ့ ထုတ်ပြမယ်
-			List<String> texts = Files.readAllLines(path);
-			texts.stream().forEach(System.out::println);
-		} catch (NoSuchFileException e) {
-			System.err.println("There is no file!");
+//			copy မယ်ဆိုရင် copy(source, target, openOption)
+//			Files.copy(source, target, StandardCopyOption.COPY_ATTRIBUTES);
+			
+			
+//			move မယ်ဆိုရင် move(source, target, openOption(ATOMIC_MOVE)) ကိုသုံးလိုက်တာနဲ့
+//			target နေရာက file အသစ်တစ်ခုကိုအရင်ဖန်တီးလိုက်ပြီး အဲ့ထဲကို source နေရာက data တွေကို copy မဟုတ်ပဲ တစ်ခါတည်း move လိုက်လို့
+//			source နေရာက file က ပျက်သွားပြီး source ထဲက data တွေက target နေရာက file အသစ်ထဲကိုပဲရောက်သွားမယ်
+			Files.move(target2, target, StandardCopyOption.ATOMIC_MOVE);
+			System.out.println("moved");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		
 		
 	}
