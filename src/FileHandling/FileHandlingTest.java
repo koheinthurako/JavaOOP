@@ -9,6 +9,9 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+import javax.naming.directory.InvalidSearchFilterException;
 
 public class FileHandlingTest {
 
@@ -45,26 +48,45 @@ public class FileHandlingTest {
 		
 		
 //		ရှိပြီးသား file တစ်ခုကိုနောက်တစ်ခါထပ် create ရင် auto rename လုပ်ပေးတဲ့ program တစ်ခုရေးမယ်
-		int no = 0;
-		String fileName = "aTest";
-		String fileType = ".txt";
-		while(true) {
-			Path path = Paths.get("D:\\" + fileName + fileType);
-			try {
-				Files.createFile(path);
-				Desktop.getDesktop().open(path.toFile());
-//				break မပါရင် file အများကြီးထွက်လာပြီး စက်ဟမ်းသွားနိုင်တယ် 
-				break;
-			} catch (FileAlreadyExistsException e) {
-				no++;
-				fileName += " (" + no + ")";
-			} catch(IOException e2) {
-				e2.printStackTrace();
-			}
+//		int no = 0;
+//		String fileName = "aTest";
+//		String fileType = ".txt";
+//		while(true) {
+//			Path path = Paths.get("D:\\" + fileName + fileType);
+//			try {
+////				Files.exits() က file မရှိဘူးဆိုရင် create လုပ်မယ် ရှိရင်တော့ ဖွင့်ရုံပဲဖွင့်မယ်စတဲ့ condition တွေစစ်လို့ရတယ်
+//				if(!Files.exists(path))
+//					Files.createFile(path);
+//				Desktop.getDesktop().open(path.toFile());
+////				break မပါရင် file အများကြီးထွက်လာပြီး စက်ဟမ်းသွားနိုင်တယ် 
+//				break;
+//			} catch (FileAlreadyExistsException e) {
+//				no++;
+//				fileName += " (" + no + ")";
+//			} catch(IOException e2) {
+//				e2.printStackTrace();
+//			}
+//		}
+		
+		
+//		file တစ်ခုဖန်တီးပြီး အဲ့ထဲကို စာတစ်ခါတည်းထည့်ရိုက်မယ် program တစ်ခုရေးမယ်
+		Path path = Paths.get("D:\\abcd.txt");
+		String data = "";
+		String line = "";
+		for(int i = 0; i < 10; i++) {
+			data = (char) (i + 'a') + "";
+//			data.repeat() က string method တစ်ခု စာလုံးတစ်ခုကို ၅ ခါရိုက်ဆိုသည့်သဘောမျိုးဖြစ်တယ်
+//			System.lineSeparator() က လိုင်းတစ်ကြောင်းဆင်းချင်ရင် သုံးပေးရတယ်
+			line += data.repeat(5) + System.lineSeparator();
+		}
+		try {
+//			file တွေကိုတစ်ခါတည်းဖန်တီးပြီး data တစ်ခါတည်းထည့်ခြင်း write() method ကိုသုံးတယ် သူ့ထဲက typeOption မှာ StandardOpenOption.CREATE
+			Files.write(path, line.getBytes(), StandardOpenOption.CREATE);
+			Desktop.getDesktop().open(path.toFile());
+		} catch (IOException e) { 
+			e.printStackTrace();
 		}
 		
-		
-
 	}
 
 }
