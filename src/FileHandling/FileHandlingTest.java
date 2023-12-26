@@ -2,14 +2,17 @@ package FileHandling;
 
 import java.awt.Desktop;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileStore;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 import javax.naming.directory.InvalidSearchFilterException;
 
@@ -47,6 +50,7 @@ public class FileHandlingTest {
 //		}
 		
 		
+		
 //		ရှိပြီးသား file တစ်ခုကိုနောက်တစ်ခါထပ် create ရင် auto rename လုပ်ပေးတဲ့ program တစ်ခုရေးမယ်
 //		int no = 0;
 //		String fileName = "aTest";
@@ -69,23 +73,48 @@ public class FileHandlingTest {
 //		}
 		
 		
+		
 //		file တစ်ခုဖန်တီးပြီး အဲ့ထဲကို စာတစ်ခါတည်းထည့်ရိုက်မယ် program တစ်ခုရေးမယ်
 		Path path = Paths.get("D:\\abcd.txt");
-		String data = "";
-		String line = "";
-		for(int i = 0; i < 10; i++) {
-			data = (char) (i + 'a') + "";
-//			data.repeat() က string method တစ်ခု စာလုံးတစ်ခုကို ၅ ခါရိုက်ဆိုသည့်သဘောမျိုးဖြစ်တယ်
-//			System.lineSeparator() က လိုင်းတစ်ကြောင်းဆင်းချင်ရင် သုံးပေးရတယ်
-			line += data.repeat(5) + System.lineSeparator();
-		}
+//		String data = "";
+//		String line = "";
+//		for(int i = 0; i < 20; i++) {
+//			data = (char) (i + 'a') + "  ";
+////			data.repeat() က string method တစ်ခု စာလုံးတစ်ခုကို ၅ ခါရိုက်ဆိုသည့်သဘောမျိုးဖြစ်တယ်
+////			System.lineSeparator() က လိုင်းတစ်ကြောင်းဆင်းချင်ရင် သုံးပေးရတယ်
+//			line += data.repeat(5) + System.lineSeparator();
+//		}
+//		try {
+////			file တွေကိုတစ်ခါတည်းဖန်တီးပြီး data တစ်ခါတည်းထည့်ခြင်း write() method ကိုသုံးတယ်
+////			path, bytes, openOption ထည့်ပေးရတယ် ထည့်လိုက်တဲ့ path ထဲကို အရင်သွားပြီး နောက်က bytes နေရာက data ကိုထည့်တယ်
+////			သူ့ထဲက openOption မှာ StandardOpenOption.CREATE ကိုသုံးရင် Files.createFile() လို ရှိပြီးသားဖြစ်နေရင်
+////			error မတက်တော့ပဲ open ပဲလုပ်သွားတယ် data တွေကိုပြင်လိုက်ရင်လည်း auto update ပြန်ပြင်ပေးတယ်
+////			ဒါက String ကို getBytes() ဆိုပြီး byte ပြန်ပြောင်းပေးရတဲ့ Java 1.8 ပုံစံဖြစ်တယ်
+////			Files.write(path, line.getBytes(), StandardOpenOption.CREATE);
+//			
+////			နောက်တစ်နည်းကတော့ Java 11 မှာထပ်ထည့်လိုက်တဲ့ Files.writeString() ဆိုတဲ့ method
+////			သူ့ထဲမှာ path, charSequence, charSet, openOption ဆိုပြီး ဘယ် path မှာ ဘယ် data ကို ဘယ်လို format နဲ့ရိုက်မလဲဆိုတဲ့ပုံစံဖြစ်တယ်
+////			String ကိုတိုက်ရိုက်ရိုင်နိုင်ပြီးတော့ charSet နေရာမှာက forName() နဲ့ UTF character code length format တွေကိုလည်းကြေညာလို့ရတယ်
+//			Files.writeString(path, line, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+//			Desktop.getDesktop().open(path.toFile());
+//		} catch (IOException e) { 
+//			e.printStackTrace();
+//		}
+		
+		
+//		ဖန်တီးထားတဲ့ files ထဲက data တွေကို console မှာထုတ်ပြီးဖတ်ချင်တယ်ဆိုရင်
+//		Files.readAllLines() ဆိုတဲ့ method ကိုသုံးတယ် return ပြန်လာတာက String DataType List collection တစ်ခု ပြန်လာမယ်
 		try {
-//			file တွေကိုတစ်ခါတည်းဖန်တီးပြီး data တစ်ခါတည်းထည့်ခြင်း write() method ကိုသုံးတယ် သူ့ထဲက typeOption မှာ StandardOpenOption.CREATE
-			Files.write(path, line.getBytes(), StandardOpenOption.CREATE);
-			Desktop.getDesktop().open(path.toFile());
-		} catch (IOException e) { 
+//			ပြန်လာတဲ့ return ကို String Collection ထဲထည့်လိုက်ပြီးတော့ forEach နဲ့ ထုတ်ပြမယ်
+			List<String> texts = Files.readAllLines(path);
+			texts.stream().forEach(System.out::println);
+		} catch (NoSuchFileException e) {
+			System.err.println("There is no file!");
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		
 		
 	}
 
