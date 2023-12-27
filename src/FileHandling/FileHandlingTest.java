@@ -145,3 +145,14 @@ public class FileHandlingTest {
 	}
 
 }
+//for (File folder : folders) {
+//	if (folder != null) {
+//		if (folder.isDirectory()) {
+//			countFolder++;
+//		} else {
+//			countFile++;
+//		}
+//	} else {
+//		System.out.println("There is empty...");
+//	}
+//}
