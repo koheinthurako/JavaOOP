@@ -60,7 +60,7 @@ public class FileHandlingTest {
 //		while(true) {
 //			Path path = Paths.get("D:\\" + fileName + fileType);
 //			try {
-////				Files.exits() က file မရှိဘူးဆိုရင် create လုပ်မယ် ရှိရင်တော့ ဖွင့်ရုံပဲဖွင့်မယ်စတဲ့ condition တွေစစ်လို့ရတယ်
+////				Files.exists() က file မရှိဘူးဆိုရင် create လုပ်မယ် ရှိရင်တော့ ဖွင့်ရုံပဲဖွင့်မယ်စတဲ့ condition တွေစစ်လို့ရတယ်
 //				if(!Files.exists(path))
 //					Files.createFile(path);
 //				Desktop.getDesktop().open(path.toFile());
@@ -97,7 +97,7 @@ public class FileHandlingTest {
 //			
 ////			နောက်တစ်နည်းကတော့ Java 11 မှာထပ်ထည့်လိုက်တဲ့ Files.writeString() ဆိုတဲ့ method
 ////			သူ့ထဲမှာ path, charSequence, charSet, openOption ဆိုပြီး ဘယ် path မှာ ဘယ် data ကို ဘယ်လို format နဲ့ရိုက်မလဲဆိုတဲ့ပုံစံဖြစ်တယ်
-////			String ကိုတိုက်ရိုက်ရိုင်နိုင်ပြီးတော့ charSet နေရာမှာက forName() နဲ့ UTF character code length format တွေကိုလည်းကြေညာလို့ရတယ်
+////			String ကိုတိုက်ရိုက်ရိုက်နိုင်ပြီးတော့ charSet နေရာမှာက forName() နဲ့ UTF character code length format တွေကိုလည်းကြေညာလို့ရတယ်
 //			Files.writeString(path, line, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
 //			Desktop.getDesktop().open(path.toFile());
 //		} catch (IOException e) { 
