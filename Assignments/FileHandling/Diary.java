@@ -1,6 +1,5 @@
 package FileHandling;
 
-import java.awt.Desktop;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.FileAlreadyExistsException;
@@ -17,6 +16,8 @@ public class Diary {
 	public static String folderName = "Diary";
 	public static String fileName = "diary";
 	public static String fileType = ".txt";
+	public static String date;
+	public static int num = 1;
 
 	public static void main(String[] args) {
 
@@ -24,7 +25,6 @@ public class Diary {
 		if (!(Files.isDirectory(path))) {
 			try {
 				Files.createDirectory(path);
-				System.out.println("Done");
 				checkFile();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -36,17 +36,18 @@ public class Diary {
 	}
 
 	public static void checkFile() {
-//		D://Diary/diary.txt
 		Path path = Paths.get("D://" + folderName + "/" + fileName + fileType);
+		LocalDate now = LocalDate.now();
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy (E)");
+		String formattedDate = now.format(dateFormatter);
+		date = now.toString();
 		try {
 			Files.createFile(path);
-		} catch (FileAlreadyExistsException e) {
+			Files.writeString(path, formattedDate + System.lineSeparator(), Charset.forName("UTF-8"),
+					StandardOpenOption.CREATE);
 			addTexts(path);
-			try {
-				Desktop.getDesktop().open(path.toFile());
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
+		} catch (FileAlreadyExistsException e) {
+			addMoreTexts(path);
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		}
@@ -55,27 +56,44 @@ public class Diary {
 	public static void addTexts(Path path) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Program Start! Write notes...");
-		LocalDate date = LocalDate.now();
-		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy (E)");
-		String formattedDate = date.format(dateFormatter);
 		try {
-			int no = 1;
-			Files.writeString(path, formattedDate + System.lineSeparator(), Charset.forName("UTF-8"), StandardOpenOption.CREATE);
-			while(true) {
+			while (true) {
 				String input = sc.nextLine();
-				Files.writeString(path, no + ". " + input + System.lineSeparator(), Charset.forName("UTF-8"), StandardOpenOption.APPEND);
-				++no;
-//				System.out.println("Wanna stop writting? Y/N : ");
-//				if(sc.nextLine().toLowerCase().equals("y")) {
-//					System.out.println("Program Ended!");
-//					break;
-//				};
+				Files.writeString(path, num + ". " + input + System.lineSeparator(),
+						Charset.forName("UTF-8"),StandardOpenOption.APPEND);
+				++num;
 			}
-			
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		}
 		sc.close();
 	}
-	
+
+	public static void addMoreTexts(Path path) {
+		LocalDate now = LocalDate.now();
+		if (now.toString().equals(date)) {
+			addTexts(path);
+		} else {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Program Start! Write notes...");
+			try {
+				int no = 1;
+				DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy (E)");
+				String formattedDate = now.format(dateFormatter);
+				Files.writeString(path, System.lineSeparator() + formattedDate + System.lineSeparator(),
+						Charset.forName("UTF-8"), StandardOpenOption.APPEND);
+				while(true) {
+					String input = sc.nextLine();
+					Files.writeString(path, no + ". " + input + System.lineSeparator(),
+							Charset.forName("UTF-8"), StandardOpenOption.APPEND);
+					++no;
+				}
+				
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}
+			sc.close();
+		}
+	}
+
 }
