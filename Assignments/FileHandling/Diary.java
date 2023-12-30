@@ -40,7 +40,6 @@ public class Diary {
 		LocalDate now = LocalDate.now();
 		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy (E)");
 		String formattedDate = now.format(dateFormatter);
-		date = now.toString();
 		try {
 			Files.createFile(path);
 			Files.writeString(path, formattedDate + System.lineSeparator(), Charset.forName("UTF-8"),
@@ -68,31 +67,17 @@ public class Diary {
 		}
 		sc.close();
 	}
-
+	
 	public static void addMoreTexts(Path path) {
 		LocalDate now = LocalDate.now();
-		if (now.toString().equals(date)) {
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy (E)");
+		String formattedDate = now.format(dateFormatter);
+		try {
+			Files.writeString(path, System.lineSeparator() + formattedDate + System.lineSeparator(),
+					Charset.forName("UTF-8"), StandardOpenOption.APPEND);
 			addTexts(path);
-		} else {
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Program Start! Write notes...");
-			try {
-				int no = 1;
-				DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy (E)");
-				String formattedDate = now.format(dateFormatter);
-				Files.writeString(path, System.lineSeparator() + formattedDate + System.lineSeparator(),
-						Charset.forName("UTF-8"), StandardOpenOption.APPEND);
-				while(true) {
-					String input = sc.nextLine();
-					Files.writeString(path, no + ". " + input + System.lineSeparator(),
-							Charset.forName("UTF-8"), StandardOpenOption.APPEND);
-					++no;
-				}
-				
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
-			sc.close();
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
 	}
 
